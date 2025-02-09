@@ -8,7 +8,7 @@ The repo provides ready code samples of [ConnectyCube chat widget](https://www.n
 The following code samples available:
 
 - [React](https://github.com/ConnectyCube/connectycube-chat-widget-samples/tree/main/react-ts)
-- [Vanilla JS](https://github.com/ConnectyCube/connectycube-chat-widget-samples/tree/main/vanilla-ts)
+- [Vanilla JS](https://github.com/ConnectyCube/connectycube-chat-widget-samples/tree/main/vanilla)
 
 ## Demo
 
