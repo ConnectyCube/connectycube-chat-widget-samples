@@ -23,6 +23,42 @@
         </div>
       </div>
     </div>
+    <script>
+      const generateRandomID = (length = 8) => {
+        const chars =
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        let result = "";
+        for (let i = 0; i < length; i++) {
+          // Pick a random character from the chars string
+          result += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return result;
+      };
+      const uniqueUsernameGenerator = () => {
+        const marvelCharacters = [
+          "Spider-Man",
+          "Iron Man",
+          "Captain America",
+          "Thor",
+          "Hulk",
+          "Black Widow",
+          "Hawkeye",
+          "Black Panther",
+          "Doctor Strange",
+          "Captain Marvel",
+        ];
+        const randIndx = Math.floor(Math.random() * marvelCharacters.length);
+        return `${marvelCharacters[randIndx]}-${generateRandomID()}`
+      }
+
+      const userId = localStorage.getItem("userId") || "";
+      const userName = localStorage.getItem("userName") || "";
+      if (!userName) {
+        const promptedName = prompt("What's your name?") || uniqueUsernameGenerator();
+        localStorage.setItem("userName", promptedName);
+        localStorage.setItem("userId", generateRandomID(10));
+      }
+    </script>
     <!-- @connectycube/chat-widget - start -->
     <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
@@ -31,12 +67,15 @@
     <script>
       const chatWidgetContainer = document.createElement('div');
       const props = {
-        appId: 7980,
-        authKey: 'CmOpsbPmTjJbYjh',
+        appId: 8095,
+        authKey: '83146458-4544-4D6A-A818-7882D4D8B3E6',
         splitView: true,
-        showOnlineUsersTab: true,
+        showOnlineUsersTab: false,
         config: { debug: { mode: 1 } },
+        userName: localStorage.getItem("userName"),
+        userId: localStorage.getItem("userId")
       };
+      console.log("props", props)
       chatWidgetContainer.id = 'ConnectyCube_chat-widget';
       document.body.appendChild(chatWidgetContainer);
       ReactDOM.createRoot(chatWidgetContainer).render(React.createElement(ConnectyCubeChatWidget, props));
