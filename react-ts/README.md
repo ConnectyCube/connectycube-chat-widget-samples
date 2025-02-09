@@ -1,50 +1,51 @@
-# React + TypeScript + Vite
+# ConnectyCube chat widget React code samples
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Overview 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The repo provides ready code sample of [ConnectyCube chat widget](https://www.npmjs.com/package/@connectycube/chat-widget) integration. 
 
-## Expanding the ESLint configuration
+Chat widget is a React component that seamlessly integrates ConnectyCube's real-time chat capabilities into your web applications. This widget offers an out-of-the-box solution for embedding chat features—such as instant messaging, user presence, and file sharing—without the overhead of building a complete chat system from scratch.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Demo
 
-- Configure the top-level `parserOptions` property like this:
+https://connectycube-chat-widget.onrender.com
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Split-view chat widget:
+
+<kbd><img alt="ConnectyCube chat widget, split view image demo" src="https://developers.connectycube.com/images/chat_widget/chat-widget-1.png" width="400" /></kbd>
+
+Single-view chat widget:
+
+<kbd><img alt="ConnectyCube chat widget, single view image demo" src="https://developers.connectycube.com/images/chat_widget/chat-widget-2.png" width="400" /></kbd>
+
+## Running Locally
+
+```
+npm i
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Build for Production
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+npm run build
+```
+
+## Documentation
+
+Follow ConnectyCube chat widget [integration documentation](https://www.npmjs.com/package/@connectycube/chat-widget) for installation guide and available props.
+
+## Community and support
+
+- [Blog](https://connectycube.com/blog)
+- X (twitter) [@ConnectyCube](https://x.com/ConnectyCube)
+- [Facebook](https://www.facebook.com/ConnectyCube)
+
+## Website
+
+[https://connectycube.com](https://connectycube.com)
+
+## License
+
+MIT
