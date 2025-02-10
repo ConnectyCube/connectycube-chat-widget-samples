@@ -40,9 +40,7 @@ function App() {
           <code>{"React + TypeScript"}</code>
         </p>
         <br></br>
-        <p>
-          Click the blue Chat button bottom right to open a chat
-        </p>
+        <p>Click the blue Chat button bottom right to open a chat</p>
       </div>
       {userName && (
         <ConnectyCubeChatWidget
@@ -53,6 +51,9 @@ function App() {
           config={{ debug: { mode: 1 } }}
           showOnlineUsersTab={true}
           splitView={true}
+          // // uncomment it if you want to place a Chat button bottom Left
+          // buttonClassName={"left-2 right-auto"}
+          // portalClassName={"left-2 right-auto"}
         />
       )}
     </>

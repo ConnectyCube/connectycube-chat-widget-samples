@@ -70,10 +70,14 @@
         appId: 8095,
         authKey: '83146458-4544-4D6A-A818-7882D4D8B3E6',
         splitView: true,
-        showOnlineUsersTab: false,
+        showOnlineUsersTab: true,
         config: { debug: { mode: 1 } },
         userName: localStorage.getItem("userName"),
-        userId: localStorage.getItem("userId")
+        userId: localStorage.getItem("userId"),
+
+        // // uncomment it if you want to place a Chat button bottom Left
+        // buttonClassName: "left-2 right-auto",
+        // portalClassName: "left-2 right-auto"
       };
       console.log("props", props)
       chatWidgetContainer.id = 'ConnectyCube_chat-widget';

@@ -8,7 +8,7 @@ This widget offers an out-of-the-box solution for embedding chat features—such
 
 ## Demo
 
-https://connectycube-chat-widget.onrender.com
+https://connectycube-chat-widget-vanilla.onrender.com
 
 Split-view chat widget:
 
