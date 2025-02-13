@@ -1,5 +1,12 @@
 # ConnectyCube Chat Widget changelog
 
+## 0.13.0
+
+### Features
+
+- user avatar
+- suggested messages
+
 ## 0.12.0
 
 ### Features
