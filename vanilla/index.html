@@ -53,10 +53,14 @@
 
       const userId = localStorage.getItem("userId") || "";
       const userName = localStorage.getItem("userName") || "";
+      const userAvatar = localStorage.getItem("userAvatar") || "";
       if (!userName) {
         const promptedName = prompt("What's your name?") || uniqueUsernameGenerator();
         localStorage.setItem("userName", promptedName);
         localStorage.setItem("userId", generateRandomID(10));
+      }
+      if (!userAvatar) {
+        localStorage.setItem("userAvatar", `https://i.pravatar.cc/300?img=${Math.floor(Math.random() * 50) + 1}`);
       }
     </script>
     <!-- @connectycube/chat-widget - start -->
@@ -66,7 +70,7 @@
     <script src="https://unpkg.com/@connectycube/chat-widget@latest/dist/index.umd.js"></script>
     <script>
       const chatWidgetContainer = document.createElement('div');
-      const props = {
+      let props = {
         appId: 8095,
         authKey: '83146458-4544-4D6A-A818-7882D4D8B3E6',
         splitView: true,
@@ -74,15 +78,27 @@
         config: { debug: { mode: 1 } },
         userName: localStorage.getItem("userName"),
         userId: localStorage.getItem("userId"),
+        userAvatar: localStorage.getItem("userAvatar"),
+        quickActions: {
+          title: 'Quick Actions',
+          description: 'Select an action from the options below or type a first message to start a conversation.',
+          actions: [
+            'Hello there!',
+            'How are you doing today?',
+            'What features of the ConnectyCube SDK do you find most useful and how have they improved your development process?',
+            'Goodbye and take care!',
+          ],
+        }
 
         // // uncomment it if you want to place a Chat button bottom Left
         // buttonClassName: "left-2 right-auto",
         // portalClassName: "left-2 right-auto"
       };
-      console.log("props", props)
+      console.log({ ConnectyCubeChatWidget })
       chatWidgetContainer.id = 'ConnectyCube_chat-widget';
       document.body.appendChild(chatWidgetContainer);
-      ReactDOM.createRoot(chatWidgetContainer).render(React.createElement(ConnectyCubeChatWidget, props));
+      const root = ReactDOM.createRoot(chatWidgetContainer);
+      root.render(React.createElement(ConnectyCubeChatWidget, props));
     </script>
     <!-- @connectycube/chat-widget - end -->
   </body>

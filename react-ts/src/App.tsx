@@ -9,6 +9,9 @@ function App() {
   const [userName, setUserName, userNameRef] = useStateRef<string | null>(
     localStorage.getItem("userName")
   );
+  const [userAvatar, setUserAvatar, userAvatarRef] = useStateRef<string | null>(
+    localStorage.getItem("userAvatar")
+  );
 
   const userId = localStorage.getItem("userId") || "";
 
@@ -20,6 +23,14 @@ function App() {
       localStorage.setItem("userName", promptedName);
       localStorage.setItem("userId", generateRandomID(10));
       setUserName(promptedName);
+    }
+
+    if (!userAvatarRef.current) {
+      const avatar = `https://i.pravatar.cc/300?img=${
+        Math.floor(Math.random() * 50) + 1
+      }`;
+      localStorage.setItem("userAvatar", avatar);
+      setUserAvatar(avatar);
     }
   }, []);
 
@@ -46,11 +57,23 @@ function App() {
         <ConnectyCubeChatWidget
           userName={userName}
           userId={userId}
+          userAvatar={userAvatar!}
           appId="8095"
           authKey="83146458-4544-4D6A-A818-7882D4D8B3E6"
           config={{ debug: { mode: 1 } }}
           showOnlineUsersTab={true}
           splitView={true}
+          quickActions={{
+            title: "Quick Actions",
+            description:
+              "Select an action from the options below or type a first message to start a conversation.",
+            actions: [
+              "Hello there!",
+              "How are you doing today?",
+              "What features of the ConnectyCube SDK do you find most useful and how have they improved your development process?",
+              "Goodbye and take care!",
+            ],
+          }}
           // // uncomment it if you want to place a Chat button bottom Left
           // buttonClassName={"left-2 right-auto"}
           // portalClassName={"left-2 right-auto"}
