@@ -1,6 +1,6 @@
 # ConnectyCube Chat Widget changelog
 
-## 0.14.2
+# 0.14.2
 
 ### Bug fixes
 
