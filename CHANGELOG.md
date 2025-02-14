@@ -1,5 +1,11 @@
 # ConnectyCube Chat Widget changelog
 
+# 0.14.3
+
+### Bug fixes
+
+- fix missing typings declaration
+
 # 0.14.2
 
 ### Bug fixes
