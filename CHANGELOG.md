@@ -1,5 +1,13 @@
 # ConnectyCube Chat Widget changelog
 
+# 0.14.0
+
+### Features
+
+- Introduce user profile link via `userProfileLink` prop
+- Hide new chat button via `hideNewChatButton` prop
+- English, Greek, Ukrainian languages supported via `translation` prop
+
 ## 0.13.0
 
 ### Features
