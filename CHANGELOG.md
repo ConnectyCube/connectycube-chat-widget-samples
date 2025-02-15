@@ -1,18 +1,24 @@
 # ConnectyCube Chat Widget changelog
 
-# 0.14.3
+## 0.14.4
+
+### Bug fixes
+
+- fix avatar crash when chat name is empty
+  
+## 0.14.3
 
 ### Bug fixes
 
 - fix missing typings declaration
 
-# 0.14.2
+## 0.14.2
 
 ### Bug fixes
 
 - fix README
 
-# 0.14.0
+## 0.14.0
 
 ### Features
 
