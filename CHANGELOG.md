@@ -1,5 +1,28 @@
 # ConnectyCube Chat Widget changelog
 
+## 0.15.0
+
+### Features
+
+- highlight links in chat messages;
+- updated attachments to support uploading any file;
+- create 1-1 chat on send 1st message, not when click on a user
+- encapsulated chat widget styles to prevent global styling effects;
+- implemented `open` prop to manage chat widget visibility state;
+- implemented `window.ConnectyCubeChatWidget.toggle()` function to manage chat widget visibility state when used as UMD;
+- implemented `onOpenChange` and `onUnreadCountChange` props as callbacks to receive updates on the visibility of the chat widget and the unread message counter, respectively;
+- implemented `hideWidgetButton` prop to hide the chat widget button and use a custom one;
+
+### Bug fixes
+
+- blocked sending files as attachments if they do not have `type` or `size` properties.
+- fixed z-index for Chat button and widget view
+
+### Misc
+
+- upgraded tailwindcss to version 4;
+- upgraded ShadCN-UI components to support TailwindCSS version 4;
+
 ## 0.14.4
 
 ### Bug fixes
