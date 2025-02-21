@@ -45,14 +45,9 @@ function App() {
           />
         </a>
       </div>
-      <h1>ConnectyCube Chat Widget</h1>
-      <div className="card">
-        <p>
-          <code>{"React + TypeScript"}</code>
-        </p>
-        <br></br>
-        <p>Click the blue Chat button bottom right to open a chat</p>
-      </div>
+      <h1>Chat Widget demo</h1>
+      <br />
+      <p>Click the blue Chat button bottom right to open a chat</p>
       {userName && (
         <ConnectyCubeChatWidget
           userName={userName}
