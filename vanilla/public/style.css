@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #242424;
+  background-color: rgba(255, 255, 255, 0.87);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -47,10 +47,62 @@ h1 {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.card {
-  padding: 2em;
-}
-
 code {
   font-weight: 600;
+}
+
+/* slider */
+.slider-container {
+  position: relative;
+  width: 500px;
+  /* Adjust width as needed */
+  height: 300px;
+  /* Adjust height as needed */
+  margin: 50px auto;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+.slider-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  z-index: 0;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 2;
+}
+
+.left-button {
+  left: 10px;
+}
+
+.right-button {
+  right: 10px;
 }
