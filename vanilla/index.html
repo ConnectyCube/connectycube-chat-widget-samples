@@ -88,13 +88,21 @@
             'What features of the ConnectyCube SDK do you find most useful and how have they improved your development process?',
             'Goodbye and take care!',
           ],
+        },
+        onOpenChange: (open) => {
+          console.log("[@connectycube/chat-widget] open:", open)
+        },
+        onUnreadCountChange:  (count) => {
+          console.log(
+            "[@connectycube/chat-widget] unread messages count:",
+            count
+          )
         }
 
         // // uncomment it if you want to place a Chat button bottom Left
         // buttonClassName: "left-2 right-auto",
         // portalClassName: "left-2 right-auto"
       };
-      console.log({ ConnectyCubeChatWidget })
       chatWidgetContainer.id = 'ConnectyCube_chat-widget';
       document.body.appendChild(chatWidgetContainer);
       const root = ReactDOM.createRoot(chatWidgetContainer);

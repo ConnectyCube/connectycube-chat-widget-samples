@@ -74,6 +74,15 @@ function App() {
               "Goodbye and take care!",
             ],
           }}
+          onOpenChange={(open) =>
+            console.log("[@connectycube/chat-widget] open:", open)
+          }
+          onUnreadCountChange={(count) =>
+            console.log(
+              "[@connectycube/chat-widget] unread messages count:",
+              count
+            )
+          }
           // // uncomment it if you want to place a Chat button bottom Left
           // buttonClassName={"left-2 right-auto"}
           // portalClassName={"left-2 right-auto"}
