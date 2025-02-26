@@ -1,5 +1,22 @@
 # ConnectyCube Chat Widget changelog
 
+## 0.16.0
+
+### Features
+
+- report user feature (via `enableContentReporting` prop)
+- block user feature (via `enableBlockList` prop)
+- notification on new message (via `showNotifications`, `playSound` and `muted` props)
+
+### Bug fixes
+
+- change `break-all` to `break-word` for chat messages text
+- chats list: last item is not visible
+
+### Misc
+
+- redux store was replaced by [zustand](https://github.com/pmndrs/zustand);
+
 ## 0.15.0
 
 ### Features
