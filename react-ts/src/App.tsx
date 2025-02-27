@@ -78,6 +78,8 @@ function App() {
               count
             )
           }
+          showNotifications={true}
+          playSound={true}
           enableContentReporting={true}
           enableBlockList={true}
           // // uncomment it if you want to place a Chat button bottom Left
