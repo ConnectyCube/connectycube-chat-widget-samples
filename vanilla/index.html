@@ -114,7 +114,7 @@
         },
 
         // muted: true,
-        showNotifications: true,
+        showNotifications: false,
         playSound: true,
 
         // moderation
@@ -144,9 +144,9 @@
       const openChatBtn = document.getElementById('openChat');
 
       const properties = [
-        {name: "Property 1", id: "property_1", agentId: 112},
-        { name: "Property 2", id: "property_2", agentId: 112 },
-        { name: "Property 3", id: "property_3", agentId: 112 }
+        {name: "Property 1", id: "property_1", agentId: 13123020, address: "Berlin" },
+        { name: "Property 2", id: "property_2", agentId: 13123020, address: "Berlin" },
+        { name: "Property 3", id: "property_3", agentId: 13123020, address: "Berlin" }
       ];
       let currentIndex = 0;
 
@@ -165,7 +165,7 @@
             opponentUserId: properties[index].agentId,
             name: `${properties[index].name} chat`,
             createDefaultChatIfNotExist: 'group',
-            metadata: { "propertyId": properties[index].id }
+            metadata: { "propertyId": properties[index].id, "address":  properties[index].address }
           },
         };
         root.render(React.createElement(ConnectyCubeChatWidget, props));
