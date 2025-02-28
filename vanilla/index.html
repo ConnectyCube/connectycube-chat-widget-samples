@@ -30,6 +30,7 @@
             <button class="slider-button right-button" id="nextBtn">&#10095;</button>
           </div>
         </div>
+        <button class="" id="openChat">Contact agent</button>
       </div>
     </div>
     <script>
@@ -148,6 +149,7 @@
       const sliderTitle = document.getElementById('sliderTitle');
       const prevBtn = document.getElementById('prevBtn');
       const nextBtn = document.getElementById('nextBtn');
+      const openChatBtn = document.getElementById('openChat');
 
       const properties = [
         {name: "Property 1", id: "property_1", agentId: 112},
@@ -184,6 +186,11 @@
       nextBtn.addEventListener('click', () => {
         currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
         showImage(currentIndex);
+      });
+
+       // Open chat button
+      openChatBtn.addEventListener('click', () => {
+        window.ConnectyCubeChatWidget.toggle()
       });
     </script>
   </body>

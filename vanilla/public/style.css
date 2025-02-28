@@ -49,7 +49,7 @@ h1 {
 
 code {
   font-weight: 600;
-<<<<<<< HEAD
+  font-size: 22px;
 }
 
 /* slider */
@@ -59,7 +59,7 @@ code {
   /* Adjust width as needed */
   height: 300px;
   /* Adjust height as needed */
-  margin: 50px auto;
+  margin: 20px auto;
   overflow: hidden;
   border: 1px solid #ccc;
 }
@@ -106,7 +106,4 @@ code {
 
 .right-button {
   right: 10px;
-=======
-  font-size: 22px;
->>>>>>> main
 }
