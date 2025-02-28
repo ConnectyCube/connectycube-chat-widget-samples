@@ -20,7 +20,7 @@
           <p>
             Click the blue Chat button bottom right to open a chat
           </p>
-          <!-- <div class="slider-container">
+          <div class="slider-container">
             <div class="slider-title" id="sliderTitle">Property 1</div>
             <img src="./public/propety_image1.png" alt="Image 1" class="slider-image active">
             <img src="./public/propety_image2.png" alt="Image 2" class="slider-image">
@@ -29,7 +29,7 @@
             <button class="slider-button left-button" id="prevBtn">&#10094;</button>
             <button class="slider-button right-button" id="nextBtn">&#10095;</button>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
     <script>
@@ -103,19 +103,29 @@
             'Download Brochure',
           ],
         },
-        // // uncomment it if you want to place a Chat button bottom Left
-        buttonClassName: "z-[9999] left-2 right-auto",
-        portalClassName: "z-[50] left-2 right-auto",
-        // onOpenChange: (open: boolean) => {
-        //   console.log('Chat widget is open:', open);
-        // },
-        // onUnreadCountChange: (count: number) => {
-        //   console.log('Unread messages count:', count);
-        // },
+        onOpenChange: (open) => {
+          console.log("[@connectycube/chat-widget] open:", open)
+        },
+        onUnreadCountChange:  (count) => {
+          console.log(
+            "[@connectycube/chat-widget] unread messages count:",
+            count
+          )
+        },
+        // muted: true,
+        showNotifications: true,
+        playSound: true,
+
+        // moderation
+        enableContentReporting: true,
+        enableBlockList: true,
+
+        // uncomment it if you want to place a Chat button bottom Left
+        // buttonClassName: "z-[9999] left-2 right-auto",
+        // portalClassName: "z-[50] left-2 right-auto",
+
         // hideWidgetButton: false,
-        showNotifications: true
       };
-      console.log({ ConnectyCubeChatWidget })
       chatWidgetContainer.id = 'ConnectyCube_chat-widget';
       document.body.appendChild(chatWidgetContainer);
       const root = ReactDOM.createRoot(chatWidgetContainer);

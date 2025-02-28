@@ -45,14 +45,9 @@ function App() {
           />
         </a>
       </div>
-      <h1>ConnectyCube Chat Widget</h1>
-      <div className="card">
-        <p>
-          <code>{"React + TypeScript"}</code>
-        </p>
-        <br></br>
-        <p>Click the blue Chat button bottom right to open a chat</p>
-      </div>
+      <h1>Chat Widget demo</h1>
+      <br />
+      <p>Click the blue Chat button bottom right to open a chat</p>
       {userName && (
         <ConnectyCubeChatWidget
           userName={userName}
@@ -74,6 +69,19 @@ function App() {
               "Goodbye and take care!",
             ],
           }}
+          onOpenChange={(open) =>
+            console.log("[@connectycube/chat-widget] open:", open)
+          }
+          onUnreadCountChange={(count) =>
+            console.log(
+              "[@connectycube/chat-widget] unread messages count:",
+              count
+            )
+          }
+          showNotifications={true}
+          playSound={true}
+          enableContentReporting={true}
+          enableBlockList={true}
           // // uncomment it if you want to place a Chat button bottom Left
           // buttonClassName={"left-2 right-auto"}
           // portalClassName={"left-2 right-auto"}

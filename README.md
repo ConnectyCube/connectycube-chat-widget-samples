@@ -26,10 +26,15 @@ Single-view chat widget:
 
 Follow ConnectyCube chat widget [integration documentation](https://www.npmjs.com/package/@connectycube/chat-widget)
 
+## Have an issue?
+
+Join our [Discord](https://discord.gg/tEnXnp2M) for quick answers to your questions
+
 ## Community and support
 
+- [Discord](https://discord.gg/tEnXnp2M)
 - [Blog](https://connectycube.com/blog)
-- X (twitter) [@ConnectyCube](https://x.com/ConnectyCube)
+- X (twitter)[@ConnectyCube](https://x.com/ConnectyCube)
 - [Facebook](https://www.facebook.com/ConnectyCube)
 
 ## Website

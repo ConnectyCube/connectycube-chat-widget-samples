@@ -49,6 +49,7 @@ h1 {
 
 code {
   font-weight: 600;
+<<<<<<< HEAD
 }
 
 /* slider */
@@ -105,4 +106,7 @@ code {
 
 .right-button {
   right: 10px;
+=======
+  font-size: 22px;
+>>>>>>> main
 }
