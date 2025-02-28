@@ -92,7 +92,6 @@
         userAvatar: localStorage.getItem("userAvatar"),
         userProfileLink: "https://developers.connectycube.com/js/code-samples",
         translation: "en",
-        // hideNewChatButton: true,
         quickActions: {
           title: 'Quick Actions',
           description: 'Select an action from the options below or type a first message to start a conversation.',
@@ -112,6 +111,7 @@
             count
           )
         },
+
         // muted: true,
         showNotifications: true,
         playSound: true,
@@ -124,7 +124,16 @@
         // buttonClassName: "z-[9999] left-2 right-auto",
         // portalClassName: "z-[50] left-2 right-auto",
 
+        // hideNewChatButton: true,
         // hideWidgetButton: false,
+
+        defaultChat: {
+          id: "xxx",
+          opponentUserId: 13095588,
+          name: "Property 1 Chat",
+          createDefaultChatIfNotExist: 'group',
+          metadata: { "propertyId": 111 }
+        },
       };
       chatWidgetContainer.id = 'ConnectyCube_chat-widget';
       document.body.appendChild(chatWidgetContainer);
