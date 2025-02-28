@@ -127,14 +127,6 @@
 
         // hideNewChatButton: true,
         // hideWidgetButton: false,
-
-        defaultChat: {
-          id: "xxx",
-          opponentUserId: 13095588,
-          name: "Property 1 Chat",
-          createDefaultChatIfNotExist: 'group',
-          metadata: { "propertyId": 111 }
-        },
       };
       chatWidgetContainer.id = 'ConnectyCube_chat-widget';
       document.body.appendChild(chatWidgetContainer);
@@ -168,10 +160,13 @@
 
         props = { 
           ...props, 
-          defaultChatId: properties[index].id,
-          defaultChatUserId: properties[index].agentId,
-          defaultChatName: `${properties[index].name} chat`,
-          createDefaultChatIfNotExist: "group",
+          defaultChat: {
+            id: properties[index].id,
+            opponentUserId: properties[index].agentId,
+            name: `${properties[index].name} chat`,
+            createDefaultChatIfNotExist: 'group',
+            metadata: { "propertyId": properties[index].id }
+          },
         };
         root.render(React.createElement(ConnectyCubeChatWidget, props));
       }
