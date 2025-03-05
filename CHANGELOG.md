@@ -1,5 +1,11 @@
 # ConnectyCube Chat Widget changelog
 
+## 0.18.0
+
+### Misc
+
+- update styles for chat item for not to interfere with host site styles
+
 ## 0.17.0
 
 ### Features
