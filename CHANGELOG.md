@@ -1,5 +1,16 @@
 # ConnectyCube Chat Widget changelog
 
+## 0.17.0
+
+### Features
+
+- added `My Profile`
+- display blocked users list in `My Profile`
+- added Notification Settings in `My Profile` (can on/off notifications and notification sound)
+- shows a toast message when a blocked user tries to send a message;
+- added `attachmentAccept` prop to specify supported attachments types
+- added `defaultChat` prop to force widget open particular chat
+
 ## 0.16.0
 
 ### Features
