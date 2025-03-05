@@ -1,5 +1,11 @@
 # ConnectyCube Chat Widget changelog
 
+## 0.19.0
+
+### Bug fixes
+
+- fix user session restore
+
 ## 0.18.0
 
 ### Misc
