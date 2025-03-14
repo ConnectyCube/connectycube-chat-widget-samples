@@ -80,6 +80,9 @@ function App() {
           }
           showNotifications={true}
           playSound={true}
+          webPushNotifications
+          webPushVapidPublicKey="BEzSbibTbmBN0wZWd2-ouzv4N-Ljr0idzOndkZ_dB-6HZIUTKewVbfjcRmuOUChK76NhmjICJNWjlBq288yU3IA"
+          serviceWorkerPath="/web-push-sw.js"
           enableContentReporting={true}
           enableBlockList={true}
           // // uncomment it if you want to place a Chat button bottom Left
