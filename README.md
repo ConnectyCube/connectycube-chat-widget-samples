@@ -28,18 +28,16 @@ Follow ConnectyCube chat widget [integration documentation](https://www.npmjs.co
 
 ## Have an issue?
 
-Join our [Discord](https://discord.gg/wDwbvJmD) for quick answers to your questions
+Join our [Discord](https://discord.com/invite/zqbBWNCCFJ) for quick answers to your questions
 
-## Community and support
+## Community
 
-- [Discord](https://discord.gg/wDwbvJmD)
 - [Blog](https://connectycube.com/blog)
 - X (twitter)[@ConnectyCube](https://x.com/ConnectyCube)
 - [Facebook](https://www.facebook.com/ConnectyCube)
 
-## Website
-
-[https://connectycube.com](https://connectycube.com)
+**Want to support our team**:<br>
+<a href="https://www.buymeacoffee.com/connectycube" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 ## License
 
