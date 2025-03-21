@@ -85,6 +85,7 @@ function App() {
           serviceWorkerPath="/web-push-sw.js"
           enableContentReporting={true}
           enableBlockList={true}
+          attachmentsAccept="image/*,video/*,.pdf"
           // // uncomment it if you want to place a Chat button bottom Left
           // buttonClassName={"left-2 right-auto"}
           // portalClassName={"left-2 right-auto"}
