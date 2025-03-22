@@ -1,5 +1,21 @@
 # ConnectyCube Chat Widget changelog
 
+## 0.21.0
+
+### Features
+
+- Video-preview for video attachment in chat
+
+### Misc
+
+- NodeJs 22 support
+- Upgraded `connectycube` to 4.2.2 and `@connectycube/use-chat` to 0.18.0
+
+### Bug fixes
+
+- Web Push Notifications on mobile bug fixes
+
+
 ## 0.20.0
 
 ### Features
