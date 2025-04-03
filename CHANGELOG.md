@@ -1,5 +1,24 @@
 # ConnectyCube Chat Widget changelog
 
+## 0.22.0
+
+### Features
+
+- URL preview - unfurl a link once posted in chat
+  - new prop `enableUrlPreview` to enable the feature
+  - new prop `limitUrlsPreviews` to set maximum displayed URLs preview in single message. Default is 1 and max is 5
+- Display user last activity
+  - new prop `enableLastSeen` to show green dot on user avatar in chats list when user is online and last seen information on chat header
+- Display online users badge on chat widget button
+  - new prop `enableOnlineUsersBadge` to enable the feature
+  - new prop `getOnlineUsersInterval` to set how frequently the badge should be updated, in seconds. Default is 300 (5 minutes), min is 30 seconds
+  - new prop `onOnlineUsersCountChange` to receive updates on the online users counter change
+  - new props `onlineBadgeStyle` and `onlineBadgeClassName` to customize the badge
+
+### Misc
+
+- Refactored typing statuses. Now it's possible to see who is typing in the dialog preview in the chat list
+
 ## 0.21.0
 
 ### Features
@@ -14,7 +33,6 @@
 ### Bug fixes
 
 - Web Push Notifications on mobile bug fixes
-
 
 ## 0.20.0
 
