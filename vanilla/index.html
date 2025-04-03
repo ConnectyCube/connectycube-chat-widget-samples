@@ -64,8 +64,8 @@
     <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/connectycube@4/dist/connectycube.min.js"></script>
-    <script src="https://unpkg.com/@connectycube/chat-widget@latest/dist/index.umd.js"></script>
-    <!-- <script src="../../connectycube-chat-widget/dist/index.umd.js"></script> -->
+    <!-- <script src="https://unpkg.com/@connectycube/chat-widget@latest/dist/index.umd.js"></script> -->
+    <script src="../../connectycube-chat-widget/dist/index.umd.js"></script>
     <script>
       const chatWidgetContainer = document.createElement('div');
       let props = {
@@ -87,17 +87,9 @@
             'Goodbye and take care!',
           ],
         },
-        onOpenChange: (open) => {
-          console.log("[@connectycube/chat-widget] open:", open)
-        },
-        onUnreadCountChange:  (count) => {
-          console.log(
-            "[@connectycube/chat-widget] unread messages count:",
-            count
-          )
-        },
+        
         translation: "en",
-
+        
         // muted: true,
         showNotifications: true,
         playSound: true,
@@ -105,15 +97,35 @@
         webPushNotifications: true,
         webPushVapidPublicKey: "BEzSbibTbmBN0wZWd2-ouzv4N-Ljr0idzOndkZ_dB-6HZIUTKewVbfjcRmuOUChK76NhmjICJNWjlBq288yU3IA",
         serviceWorkerPath: "./public/web-push-sw.js",
-
+        
         enableContentReporting: true,
         enableBlockList: true,
-
+        
+        enableLastSeen: true,
+        enableOnlineUsersBadge: true,
+        getOnlineUsersInterval: 180,
+        
+        enableUrlPreview: true,
+        limitUrlsPreviews: 1,
+        
         attachmentsAccept: "image/*,video/*,.pdf",
-
+        
         // // uncomment it if you want to place a Chat button bottom Left
         // buttonClassName: "left-2 right-auto",
         // portalClassName: "left-2 right-auto"
+        
+        onOpenChange: (open) => {
+          console.log("[@connectycube/chat-widget] open:", open)
+        },
+        onUnreadCountChange: (count) => {
+          console.log(
+            "[@connectycube/chat-widget] unread messages count:",
+            count
+          )
+        },
+        onOnlineUsersCountChange: (count) => {
+          console.log("[@connectycube/chat-widget] online users count:", count)
+        },
       };
       chatWidgetContainer.id = 'ConnectyCube_chat-widget';
       document.body.appendChild(chatWidgetContainer);
