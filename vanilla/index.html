@@ -69,14 +69,21 @@
     <script>
       const chatWidgetContainer = document.createElement('div');
       let props = {
+        // credentials
         appId: 8095,
         authKey: '83146458-4544-4D6A-A818-7882D4D8B3E6',
+        config: { debug: { mode: 1 } },
+
+        // view mode
         splitView: true,
         showOnlineUsersTab: true,
-        config: { debug: { mode: 1 } },
+ 
+        // user info
         userName: localStorage.getItem("userName"),
         userId: localStorage.getItem("userId"),
         userAvatar: localStorage.getItem("userAvatar"),
+
+        // quick actions
         quickActions: {
           title: 'Quick Actions',
           description: 'Select an action from the options below or type a first message to start a conversation.',
@@ -88,27 +95,36 @@
           ],
         },
         
+        // language
         translation: "en",
         
+        // notifications
         // muted: true,
         showNotifications: true,
         playSound: true,
-        // web push notifications
+
+        // push notifications
         webPushNotifications: true,
         webPushVapidPublicKey: "BEzSbibTbmBN0wZWd2-ouzv4N-Ljr0idzOndkZ_dB-6HZIUTKewVbfjcRmuOUChK76NhmjICJNWjlBq288yU3IA",
         serviceWorkerPath: "./public/web-push-sw.js",
         
+        // moderation
         enableContentReporting: true,
         enableBlockList: true,
         
+        // last seen
         enableLastSeen: true,
+
+        // online users badge
         enableOnlineUsersBadge: true,
         getOnlineUsersInterval: 180,
         
+        // url preview
         enableUrlPreview: true,
         limitUrlsPreviews: 1,
         
-        attachmentsAccept: "image/*,video/*,.pdf",
+        // attachments settings
+        attachmentsAccept: "image/*,video/*,.pdf,audio/*",
         
         // // uncomment it if you want to place a Chat button bottom Left
         // buttonClassName: "left-2 right-auto",
