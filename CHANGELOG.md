@@ -14,10 +14,7 @@
   - new prop `getOnlineUsersInterval` to set how frequently the badge should be updated, in seconds. Default is 300 (5 minutes), min is 30 seconds
   - new prop `onOnlineUsersCountChange` to receive updates on the online users counter change
   - new props `onlineBadgeStyle` and `onlineBadgeClassName` to customize the badge
-
-### Misc
-
-- Refactored typing statuses. Now it's possible to see who is typing in the dialog preview in the chat list
+- User typing feature
 
 ## 0.21.0
 
