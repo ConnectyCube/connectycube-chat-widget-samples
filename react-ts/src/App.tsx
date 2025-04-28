@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import ConnectyCubeChatWidget from "@connectycube/chat-widget";
+import ConnectyCubeChatWidget from "@connectycube/chat-widget/react19";
 import connectycubeLogo from "/logo.png";
 import "./App.css";
 import { uniqueUsernameGenerator, Config } from "unique-username-generator";
