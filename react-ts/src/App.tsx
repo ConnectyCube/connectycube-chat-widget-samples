@@ -50,14 +50,17 @@ function App() {
       <p>Click the blue Chat button bottom right to open a chat</p>
       {userName && (
         <ConnectyCubeChatWidget
-          userName={userName}
-          userId={userId}
-          userAvatar={userAvatar!}
           appId="8095"
           authKey="83146458-4544-4D6A-A818-7882D4D8B3E6"
           config={{ debug: { mode: 1 } }}
-          showOnlineUsersTab={true}
-          splitView={true}
+          
+          showOnlineUsersTab
+          splitView
+
+          userName={userName}
+          userId={userId}
+          userAvatar={userAvatar!}
+
           quickActions={{
             title: "Quick Actions",
             description:
@@ -69,6 +72,30 @@ function App() {
               "Goodbye and take care!",
             ],
           }}
+          translation={"en"}
+
+          showNotifications
+          playSound
+
+          webPushNotifications
+          webPushVapidPublicKey="BEzSbibTbmBN0wZWd2-ouzv4N-Ljr0idzOndkZ_dB-6HZIUTKewVbfjcRmuOUChK76NhmjICJNWjlBq288yU3IA"
+          serviceWorkerPath="/web-push-sw.js"
+
+          enableContentReporting
+          enableBlockList
+          
+          enableLastSeen
+          
+          enableOnlineUsersBadge
+          getOnlineUsersInterval={180}
+          
+          enableUrlPreview
+          limitUrlsPreviews={1}
+          
+          attachmentsAccept="image/*,video/*,.pdf,audio/*"
+          // // uncomment it if you want to place a Chat button bottom Left
+          // buttonClassName={"left-2 right-auto"}
+          // portalClassName={"left-2 right-auto"}
           onOpenChange={(open) =>
             console.log("[@connectycube/chat-widget] open:", open)
           }
@@ -78,13 +105,12 @@ function App() {
               count
             )
           }
-          showNotifications={true}
-          playSound={true}
-          enableContentReporting={true}
-          enableBlockList={true}
-          // // uncomment it if you want to place a Chat button bottom Left
-          // buttonClassName={"left-2 right-auto"}
-          // portalClassName={"left-2 right-auto"}
+          onOnlineUsersCountChange={(count) => {
+            console.log(
+              "[@connectycube/chat-widget] online users count:",
+              count
+            );
+          }}
         />
       )}
     </>

@@ -1,5 +1,73 @@
 # ConnectyCube Chat Widget changelog
 
+## 0.22.0
+
+### Features
+
+- URL preview - unfurl a link once posted in chat
+  - new prop `enableUrlPreview` to enable the feature
+  - new prop `limitUrlsPreviews` to set maximum displayed URLs preview in single message. Default is 1 and max is 5
+- Display user last activity
+  - new prop `enableLastSeen` to show green dot on user avatar in chats list when user is online and last seen information on chat header
+- Display online users badge on chat widget button
+  - new prop `enableOnlineUsersBadge` to enable the feature
+  - new prop `getOnlineUsersInterval` to set how frequently the badge should be updated, in seconds. Default is 300 (5 minutes), min is 30 seconds
+  - new prop `onOnlineUsersCountChange` to receive updates on the online users counter change
+  - new props `onlineBadgeStyle` and `onlineBadgeClassName` to customize the badge
+- User typing feature
+
+## 0.21.0
+
+### Features
+
+- Video-preview for video attachment in chat
+
+### Misc
+
+- NodeJs 22 support
+- Upgraded `connectycube` to 4.2.2 and `@connectycube/use-chat` to 0.18.0
+
+### Bug fixes
+
+- Web Push Notifications on mobile bug fixes
+
+## 0.20.0
+
+### Features
+
+- Push Notifications support (receive notifications when browser tab is closed). New props: `webPushNotifications`, `webPushVapidPublicKey`, `serviceWorkerPath`
+- Allow users search from 3 characters min (was 4)
+- New props - `hideNewUserChatOption`, `hideNewGroupChatOption` - To hide 'New group' / 'New message' options in Create Chat dropdown menu
+
+### Bug fixes
+
+- [mobile] can't access own profile page
+- `attachmetsAccept` prop: block sending unsupported attachments when select All Files in file picker
+- Improved block list flow
+
+## 0.19.0
+
+### Bug fixes
+
+- fix user session restore
+
+## 0.18.0
+
+### Misc
+
+- update styles for chat item for not to interfere with host site styles
+
+## 0.17.0
+
+### Features
+
+- added `My Profile`
+- display blocked users list in `My Profile`
+- added Notification Settings in `My Profile` (can on/off notifications and notification sound)
+- shows a toast message when a blocked user tries to send a message;
+- added `attachmentsAccept` prop to specify supported attachments types
+- added `defaultChat` prop to force widget open particular chat
+
 ## 0.16.0
 
 ### Features
