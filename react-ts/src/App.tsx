@@ -53,45 +53,35 @@ function App() {
           appId="8095"
           authKey="83146458-4544-4D6A-A818-7882D4D8B3E6"
           config={{ debug: { mode: 1 } }}
-          
           showOnlineUsersTab
           splitView
-
           userName={userName}
           userId={userId}
           userAvatar={userAvatar!}
-
           quickActions={{
             title: "Quick Actions",
             description:
               "Select an action from the options below or type a first message to start a conversation.",
             actions: [
-              "Hello there!",
-              "How are you doing today?",
-              "What features of the ConnectyCube SDK do you find most useful and how have they improved your development process?",
-              "Goodbye and take care!",
+              "Hi, I’m interested in this property.",
+              "Can you tell me more about the price and payment options?",
+              "Is the property still available?",
+              "Can I schedule a viewing?",
             ],
           }}
           translation={"en"}
-
           showNotifications
           playSound
-
           webPushNotifications
           webPushVapidPublicKey="BEzSbibTbmBN0wZWd2-ouzv4N-Ljr0idzOndkZ_dB-6HZIUTKewVbfjcRmuOUChK76NhmjICJNWjlBq288yU3IA"
           serviceWorkerPath="/web-push-sw.js"
-
           enableContentReporting
           enableBlockList
-          
           enableLastSeen
-          
           enableOnlineUsersBadge
           getOnlineUsersInterval={180}
-          
           enableUrlPreview
           limitUrlsPreviews={1}
-          
           attachmentsAccept="image/*,video/*,.pdf,audio/*"
           // // uncomment it if you want to place a Chat button bottom Left
           // buttonClassName={"left-2 right-auto"}

@@ -78,7 +78,7 @@
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/connectycube@4/dist/connectycube.min.js"></script>
     <!-- <script src="https://unpkg.com/@connectycube/chat-widget@latest/dist/index.umd.js"></script> -->
-    <script src="../../connectycube-chat-widget/packages/chat-widget/dist/index.umd.js"></script>
+    <script src="../../connectycube-chat-widget/dist/index.umd.js"></script>
     <script>
       const chatWidgetContainer = document.createElement('div');
       // chatWidgetContainer.style.zIndex = '1000';
@@ -115,7 +115,7 @@
         translation: "en",
         
         // notifications
-        // muted: true,
+        muted: true,
         showNotifications: true,
         playSound: true,
 
@@ -156,20 +156,8 @@
           )
         },
 
-        // muted: true,
-        showNotifications: false,
-        playSound: true,
-
-        // moderation
-        enableContentReporting: true,
-        enableBlockList: true,
-
-        // uncomment it if you want to place a Chat button bottom Left
-        // buttonClassName: "z-[9999] left-2 right-auto",
-        // portalClassName: "z-[50] left-2 right-auto",
-
         // hideNewChatButton: true,
-        // hideWidgetButton: false,
+        hideWidgetButton: true,
 
         onOnlineUsersCountChange: (count) => {
           console.log("[@connectycube/chat-widget] online users count:", count)
@@ -191,9 +179,9 @@
       const openChatBtn = document.getElementById('openChat');
 
       const properties = [
-        {name: "Property 1", id: "property_1", agentId: 13123020, address: "Berlin" },
-        { name: "Property 2", id: "property_2", agentId: 13123020, address: "Berlin" },
-        { name: "Property 3", id: "property_3", agentId: 13123020, address: "Berlin" }
+        {name: "Property 1", id: "property_1", agentId: "itkj0uaQ9w", address: "Berlin" },
+        { name: "Property 2", id: "property_2", agentId: "itkj0uaQ9w", address: "Berlin" },
+        { name: "Property 3", id: "property_3", agentId: "itkj0uaQ9w", address: "Berlin" }
       ];
       let currentIndex = 0;
 
@@ -232,7 +220,9 @@
 
        // Open chat button
       openChatBtn.addEventListener('click', () => {
-        window.ConnectyCubeChatWidget.toggle()
+        setTimeout(() => {
+          window.ConnectyCubeChatWidget.toggle()
+        })
       });
     </script>
   </body>
