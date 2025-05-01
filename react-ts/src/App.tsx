@@ -93,9 +93,9 @@ function App() {
           limitUrlsPreviews={1}
           
           attachmentsAccept="image/*,video/*,.pdf,audio/*"
-          // // uncomment it if you want to place a Chat button bottom Left
-          // buttonClassName={"left-2 right-auto"}
-          // portalClassName={"left-2 right-auto"}
+          // uncomment it if you want to place a Chat button bottom Left
+          // buttonStyle={{ "left": "0.5rem", "right": "auto" }}
+          // portalStyle={{ "left": "0.5rem", "right": "auto" }}
           onOpenChange={(open) =>
             console.log("[@connectycube/chat-widget] open:", open)
           }
