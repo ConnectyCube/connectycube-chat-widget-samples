@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import ConnectyCubeChatWidget from "@connectycube/chat-widget/react19";
+import { useEffect } from "react";
+import ConnectyCubeChatWidget from "@connectycube/chat-widget";
 import connectycubeLogo from "/logo.png";
 import "./App.css";
 import { uniqueUsernameGenerator, Config } from "unique-username-generator";
@@ -16,7 +16,6 @@ function App() {
   const userId = localStorage.getItem("userId") || "";
 
   useEffect(() => {
-    console.log(React.version);
     if (!userNameRef.current) {
       const promptedName =
         prompt("What's your name?") ||
