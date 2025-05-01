@@ -74,12 +74,16 @@ function App() {
           }}
           translation={"en"}
 
+          showChatStatus
+
           showNotifications
           playSound
 
           webPushNotifications
           webPushVapidPublicKey="BEzSbibTbmBN0wZWd2-ouzv4N-Ljr0idzOndkZ_dB-6HZIUTKewVbfjcRmuOUChK76NhmjICJNWjlBq288yU3IA"
           serviceWorkerPath="/web-push-sw.js"
+
+          enableUserStatuses
 
           enableContentReporting
           enableBlockList
@@ -96,16 +100,16 @@ function App() {
           // // uncomment it if you want to place a Chat button bottom Left
           // buttonClassName={"left-2 right-auto"}
           // portalClassName={"left-2 right-auto"}
-          onOpenChange={(open) =>
+          onOpenChange={(open: boolean) =>
             console.log("[@connectycube/chat-widget] open:", open)
           }
-          onUnreadCountChange={(count) =>
+          onUnreadCountChange={(count: number) =>
             console.log(
               "[@connectycube/chat-widget] unread messages count:",
               count
             )
           }
-          onOnlineUsersCountChange={(count) => {
+          onOnlineUsersCountChange={(count: number) => {
             console.log(
               "[@connectycube/chat-widget] online users count:",
               count
