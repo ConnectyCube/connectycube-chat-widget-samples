@@ -1,5 +1,58 @@
 # ConnectyCube Chat Widget changelog
 
+## 0.25.0
+
+### Features
+
+- User can select status "Available", "Busy" and "Away"
+  - new prop `enableUserStatuses` to enable the feature. Default is **false**
+- New message statuses "wait" and "lost", along with existing "sent" and "read"
+- Hide chat widget by click or touch, or press "Escape" outside widget's containers
+  - new prop `disableClickOutside` to disable the feature. Default is **false**
+- Chat connection statuses "disconnected", "connecting" and "connected"
+  - new prop `showChatStatus` to enable the feature. Default is **false**
+- Improved chat/internet automatic reconnection flow to prevent messages missing
+- Updated **defaultChat.opponentUserId** prop to behave like **userId** prop (from user's own system) and have type **string**
+- Added the ability to embed chat-widget in a parent block. It will open by default, and the widget's button will be hidden
+  - new prop `embedView` to enable the feature. Default is **false**. If enabled, `open` and `hideWidgetButton` will not react
+
+### Misc
+
+- Implemented scrollbar styles to prevent inheritance in widget's #shadow-root
+- Added an overlay for modals (Dialog and AlertDialog)
+- Props `portalClassName`, `buttonClassName`, `buttonClassName` and `onlineBadgeClassName` were removed. Use `portalStyle`, `buttonStyle`, `badgeStyle` and `onlineBadgeStyle` instead
+
+### Bug fixes
+
+- Light text on a white background
+- Document's scroll locks on mobile
+- Scroll by wheel is broken in modals
+- Message status "read" does not react in real-time
+
+## 0.24.0
+
+### Bug fixes
+
+- UI fixes for when `enableUrlPreview=false`
+
+## 0.23.0
+
+### Features
+
+- The chat widget is now fully rendered inside a Shadow DOM, preventing style conflicts and external interference
+- Supports React 19. Import the dedicated ESM-only build instead: `import ConnectyCubeChatWidget from '@connectycube/chat-widget/react19'`
+
+### Bug fixes
+
+- Fix message text line break behavior
+- Online users badge: hide if count = 0
+- Do not request online users if `enableOnlineUsersBadge=false`
+
+### Misc
+
+- Users tab: remove arrow icon from user cell
+- Removed dependency on the libraries "react-router", "react-router-dom" and "react-scroll"
+
 ## 0.22.0
 
 ### Features
