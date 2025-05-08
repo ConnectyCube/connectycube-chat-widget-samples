@@ -29,7 +29,10 @@ function App() {
       setUserData((prevState) => ({ ...prevState, name }));
     }
     if (!userDataRef.current.avatar) {
-      const avatar = `https://robohash.org/${userDataRef.current.id}`;
+      const randomId = localStorage.getItem("userId") || generateRandomID(10);
+      const randomSet  = Math.floor(Math.random() * 5) + 1;
+      const randomBg  = Math.floor(Math.random() * 3);
+      const avatar = `https://robohash.org/${randomId}?size=300x300&set=set${randomSet}&bgset=bg${randomBg}`;
       localStorage.setItem("userAvatar", avatar);
       setUserData((prevState) => ({ ...prevState, avatar }));
     }
