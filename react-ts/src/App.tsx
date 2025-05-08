@@ -2,35 +2,36 @@ import { useEffect } from "react";
 import ConnectyCubeChatWidget from "@connectycube/chat-widget";
 import connectycubeLogo from "/logo.png";
 import "./App.css";
-import { uniqueUsernameGenerator, Config } from "unique-username-generator";
 import useStateRef from "react-usestateref";
 
-function App() {
-  const [userName, setUserName, userNameRef] = useStateRef<string | null>(
-    localStorage.getItem("userName")
-  );
-  const [userAvatar, setUserAvatar, userAvatarRef] = useStateRef<string | null>(
-    localStorage.getItem("userAvatar")
-  );
+type UserData = {
+  id: string,
+  name: string,
+  avatar: string
+}
 
-  const userId = localStorage.getItem("userId") || "";
+function App() {
+  const [userData, setUserData, userDataRef] = useStateRef<UserData>({
+    id: localStorage.getItem("userId") || "",
+    name: localStorage.getItem("userName") || "",
+    avatar: localStorage.getItem("userAvatar") || "",
+  });
 
   useEffect(() => {
-    if (!userNameRef.current) {
-      const promptedName =
-        prompt("What's your name?") ||
-        uniqueUsernameGenerator(uniqueUsernameGeneratorConfig);
-      localStorage.setItem("userName", promptedName);
-      localStorage.setItem("userId", generateRandomID(10));
-      setUserName(promptedName);
+    if (!userDataRef.current.id) {
+      const id = generateRandomID(10);
+      localStorage.setItem("userId", id);
+      setUserData((prevState) => ({ ...prevState, id }));
     }
-
-    if (!userAvatarRef.current) {
-      const avatar = `https://i.pravatar.cc/300?img=${
-        Math.floor(Math.random() * 50) + 1
-      }`;
+    if (!userDataRef.current.name) {
+      const name = prompt("What's your name?") || randomMarvelCharacterName();
+      localStorage.setItem("userName", name);
+      setUserData((prevState) => ({ ...prevState, name }));
+    }
+    if (!userDataRef.current.avatar) {
+      const avatar = `https://robohash.org/${userDataRef.current.id}`;
       localStorage.setItem("userAvatar", avatar);
-      setUserAvatar(avatar);
+      setUserData((prevState) => ({ ...prevState, avatar }));
     }
   }, []);
 
@@ -48,7 +49,7 @@ function App() {
       <h1>Chat Widget demo</h1>
       <br />
       <p>Click the blue Chat button bottom right to open a chat</p>
-      {userName && (
+      {userData && (
         <ConnectyCubeChatWidget
           appId="8095"
           authKey="83146458-4544-4D6A-A818-7882D4D8B3E6"
@@ -57,9 +58,9 @@ function App() {
           showOnlineUsersTab
           splitView
 
-          userName={userName}
-          userId={userId}
-          userAvatar={userAvatar!}
+          userId={userData.id}
+          userName={userData.name}
+          userAvatar={userData?.avatar}
 
           quickActions={{
             title: "Quick Actions",
@@ -125,25 +126,16 @@ function App() {
 
 export default App;
 
-const marvelCharacters = [
-  "Spider-Man",
-  "Iron Man",
-  "Captain America",
-  "Thor",
-  "Hulk",
-  "Black Widow",
-  "Hawkeye",
-  "Black Panther",
-  "Doctor Strange",
-  "Captain Marvel",
-];
-
-const uniqueUsernameGeneratorConfig: Config = {
-  dictionaries: [marvelCharacters],
-  separator: "",
-  style: "capital",
-  randomDigits: 3,
-};
+const randomMarvelCharacterName = () => {
+  const marvelCharacters = [
+      "Spider-Man", "Iron Man", "Captain America", "Thor", "Hulk", "Black Widow", "Hawkeye", "Black Panther", "Doctor Strange", "Captain Marvel",
+      "Wolverine", "Deadpool", "Scarlet Witch", "Vision", "Scott Lang", "Sam Wilson", "Bucky Barnes", "Peter Quill", "Gamora", "Elektra",
+      "Drax the Destroyer", "Rocket Raccoon", "Groot", "Nebula", "Loki", "Quicksilver", "Storm", "Jean Grey",  "Cyclops", "Beast",
+      "Nightcrawler", "Rogue", "Iceman", "Professor X", "Magneto", "Mystique", "Psylocke", "Silver Surfer", "Galactus", "Thanos",
+      "Ultron", "Red Skull", "Green Goblin", "Venom", "Doctor Octopus", "Electro", "Iron Fist", "Daredevil", "Ghost Rider", "Moon Knight",
+  ];
+  return `${marvelCharacters[Math.floor(Math.random() * marvelCharacters.length)]}`
+}
 
 const generateRandomID = (length = 8) => {
   const chars =
