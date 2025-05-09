@@ -4,37 +4,36 @@ import connectycubeLogo from "/logo.png";
 import "./App.css";
 import useStateRef from "react-usestateref";
 
-type UserData = {
-  id: string,
-  name: string,
-  avatar: string
-}
-
 function App() {
-  const [userData, setUserData, userDataRef] = useStateRef<UserData>({
-    id: localStorage.getItem("userId") || "",
-    name: localStorage.getItem("userName") || "",
-    avatar: localStorage.getItem("userAvatar") || "",
-  });
+  const [userId, setUserId, userIdRef] = useStateRef<string | undefined>();
+  const [userName, setUserName, userNameRef] = useStateRef<string | undefined>();
+  const [userAvatar, setUserAvatar, userAvatarRef] = useStateRef<string | undefined>();
 
   useEffect(() => {
-    if (!userDataRef.current.id) {
-      const id = generateRandomID(10);
+    if (!userIdRef.current) {
+      const id = localStorage.getItem("userId") || generateRandomID(10);
+
       localStorage.setItem("userId", id);
-      setUserData((prevState) => ({ ...prevState, id }));
+      setUserId(id);
     }
-    if (!userDataRef.current.name) {
-      const name = prompt("What's your name?") || randomMarvelCharacterName();
+    if (!userNameRef.current) {
+      const name = localStorage.getItem("userName") || prompt("What's your name?") || randomMarvelCharacterName();
+
       localStorage.setItem("userName", name);
-      setUserData((prevState) => ({ ...prevState, name }));
+      setUserName(name);
     }
-    if (!userDataRef.current.avatar) {
-      const randomId = localStorage.getItem("userId") || generateRandomID(10);
-      const randomSet  = Math.floor(Math.random() * 5) + 1;
-      const randomBg  = Math.floor(Math.random() * 3);
-      const avatar = `https://robohash.org/${randomId}?size=300x300&set=set${randomSet}&bgset=bg${randomBg}`;
+    if (!userAvatarRef.current) {
+      let avatar = localStorage.getItem("userAvatar")
+
+      if (!avatar) {
+        const randomId = userIdRef.current || generateRandomID(10);
+        const randomSet  = Math.floor(Math.random() * 5) + 1;
+        const randomBg  = Math.floor(Math.random() * 3);
+        avatar = `https://robohash.org/${randomId}?size=300x300&set=set${randomSet}&bgset=bg${randomBg}`;
+      }
+
       localStorage.setItem("userAvatar", avatar);
-      setUserData((prevState) => ({ ...prevState, avatar }));
+      setUserAvatar(userAvatar);
     }
   }, []);
 
@@ -52,7 +51,7 @@ function App() {
       <h1>Chat Widget demo</h1>
       <br />
       <p>Click the blue Chat button bottom right to open a chat</p>
-      {userData && (
+      {userId && (
         <ConnectyCubeChatWidget
           appId="8095"
           authKey="83146458-4544-4D6A-A818-7882D4D8B3E6"
@@ -61,9 +60,9 @@ function App() {
           showOnlineUsersTab
           splitView
 
-          userId={userData.id}
-          userName={userData.name}
-          userAvatar={userData?.avatar}
+          userId={userId}
+          userName={userName}
+          userAvatar={userAvatar}
 
           quickActions={{
             title: "Quick Actions",
