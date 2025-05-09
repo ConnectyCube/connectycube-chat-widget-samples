@@ -22,19 +22,19 @@
     </div>
     <script>
       const marvelCharacters = [
-          "Spider-Man", "Iron Man", "Captain America", "Thor", "Hulk", "Black Widow", "Hawkeye", "Black Panther", "Doctor Strange", "Captain Marvel",
-          "Wolverine", "Deadpool", "Scarlet Witch", "Vision", "Scott Lang", "Sam Wilson", "Bucky Barnes", "Peter Quill", "Gamora", "Elektra",
-          "Drax the Destroyer", "Rocket Raccoon", "Groot", "Nebula", "Loki", "Quicksilver", "Storm", "Jean Grey",  "Cyclops", "Beast",
-          "Nightcrawler", "Rogue", "Iceman", "Professor X", "Magneto", "Mystique", "Psylocke", "Silver Surfer", "Galactus", "Thanos",
-          "Ultron", "Red Skull", "Green Goblin", "Venom", "Doctor Octopus", "Electro", "Iron Fist", "Daredevil", "Ghost Rider", "Moon Knight",
+        "Spider-Man", "Iron Man", "Captain America", "Thor", "Hulk", "Black Widow", "Hawkeye", "Black Panther", "Doctor Strange", "Captain Marvel",
+        "Wolverine", "Deadpool", "Scarlet Witch", "Vision", "Scott Lang", "Sam Wilson", "Bucky Barnes", "Peter Quill", "Gamora", "Elektra",
+        "Drax the Destroyer", "Rocket Raccoon", "Groot", "Nebula", "Loki", "Quicksilver", "Storm", "Jean Grey",  "Cyclops", "Beast",
+        "Nightcrawler", "Rogue", "Iceman", "Professor X", "Magneto", "Mystique", "Psylocke", "Silver Surfer", "Galactus", "Thanos",
+        "Ultron", "Red Skull", "Green Goblin", "Venom", "Doctor Octopus", "Electro", "Iron Fist", "Daredevil", "Ghost Rider", "Moon Knight",
       ];
 
       const randomNumber = (from = 0, to = 100) => {
-          return Math.floor(Math.random() * to) + from;
+        return Math.floor(Math.random() * to) + from;
       }
 
       const randomMarvelCharacterName = () => {
-         return `${marvelCharacters[randomNumber(0, marvelCharacters.length)]}`
+        return `${marvelCharacters[randomNumber(0, marvelCharacters.length)]}`
       }
       
       const generateRandomID = (length = 8) => {
@@ -47,15 +47,15 @@
       };
 
       const randomAvatar = (id) => {
-          const _id = id || generateRandomID();
-          const _set = randomNumber(1, 5);
-          const _bg = randomNumber(1, 5);
-          return `https://robohash.org/${_id}?size=300x300&set=set${_set}&bgset=bg${_bg}`
+        const _id = id || generateRandomID();
+        const _set = randomNumber(1, 5);
+        const _bg = randomNumber(1, 5);
+        return `https://robohash.org/${_id}?size=300x300&set=set${_set}&bgset=bg${_bg}`
       }
 
       const userId = localStorage.getItem("userId") || generateRandomID(10);
       const userName = localStorage.getItem("userName") || prompt("What's your name?") || randomMarvelCharacterName();
-      const userAvatar = localStorage.getItem("userAvatar") || randomAvatar(id);
+      const userAvatar = localStorage.getItem("userAvatar") || randomAvatar(userId);
       
       localStorage.setItem("userId", userId);
       localStorage.setItem("userName", userName);
