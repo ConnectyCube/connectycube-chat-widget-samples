@@ -27,8 +27,8 @@ function App() {
 
       if (!avatar) {
         const randomId = userIdRef.current || generateRandomID(10);
-        const randomSet = randomDigit(1, 5);
-        const randomBg = randomDigit(0, 3);
+        const randomSet = randomNumber(1, 5);
+        const randomBg = randomNumber(0, 3);
         avatar = `https://robohash.org/${randomId}?size=300x300&set=set${randomSet}&bgset=bg${randomBg}`;
       }
 
@@ -136,12 +136,12 @@ const marvelCharacters = [
     "Ultron", "Red Skull", "Green Goblin", "Venom", "Doctor Octopus", "Electro", "Iron Fist", "Daredevil", "Ghost Rider", "Moon Knight",
 ];
 
-const randomDigit = (from: number = 0, to: number = 100) => {
+const randomNumber = (from: number = 0, to: number = 100) => {
   return Math.floor(Math.random() * to) + from;
 }
 
 const randomMarvelCharacterName = () => {
-  return `${marvelCharacters[randomDigit(0, marvelCharacters.length)]}`
+  return `${marvelCharacters[randomNumber(0, marvelCharacters.length)]}`
 }
 
 const generateRandomID = (length = 8) => {
@@ -150,7 +150,7 @@ const generateRandomID = (length = 8) => {
   let result = "";
   for (let i = 0; i < length; i++) {
     // Pick a random character from the chars string
-    result += chars.charAt(randomDigit(0, chars.length));
+    result += chars.charAt(randomNumber(0, chars.length));
   }
   return result;
 };
