@@ -27,8 +27,8 @@ function App() {
 
       if (!avatar) {
         const randomId = userIdRef.current || generateRandomID(10);
-        const randomSet  = Math.floor(Math.random() * 5) + 1;
-        const randomBg  = Math.floor(Math.random() * 3);
+        const randomSet = randomDigit(1, 5);
+        const randomBg = randomDigit(0, 3);
         avatar = `https://robohash.org/${randomId}?size=300x300&set=set${randomSet}&bgset=bg${randomBg}`;
       }
 
@@ -128,15 +128,20 @@ function App() {
 
 export default App;
 
+const marvelCharacters = [
+    "Spider-Man", "Iron Man", "Captain America", "Thor", "Hulk", "Black Widow", "Hawkeye", "Black Panther", "Doctor Strange", "Captain Marvel",
+    "Wolverine", "Deadpool", "Scarlet Witch", "Vision", "Scott Lang", "Sam Wilson", "Bucky Barnes", "Peter Quill", "Gamora", "Elektra",
+    "Drax the Destroyer", "Rocket Raccoon", "Groot", "Nebula", "Loki", "Quicksilver", "Storm", "Jean Grey",  "Cyclops", "Beast",
+    "Nightcrawler", "Rogue", "Iceman", "Professor X", "Magneto", "Mystique", "Psylocke", "Silver Surfer", "Galactus", "Thanos",
+    "Ultron", "Red Skull", "Green Goblin", "Venom", "Doctor Octopus", "Electro", "Iron Fist", "Daredevil", "Ghost Rider", "Moon Knight",
+];
+
+const randomDigit = (from: number = 0, to: number = 100) => {
+  return Math.floor(Math.random() * to) + from;
+}
+
 const randomMarvelCharacterName = () => {
-  const marvelCharacters = [
-      "Spider-Man", "Iron Man", "Captain America", "Thor", "Hulk", "Black Widow", "Hawkeye", "Black Panther", "Doctor Strange", "Captain Marvel",
-      "Wolverine", "Deadpool", "Scarlet Witch", "Vision", "Scott Lang", "Sam Wilson", "Bucky Barnes", "Peter Quill", "Gamora", "Elektra",
-      "Drax the Destroyer", "Rocket Raccoon", "Groot", "Nebula", "Loki", "Quicksilver", "Storm", "Jean Grey",  "Cyclops", "Beast",
-      "Nightcrawler", "Rogue", "Iceman", "Professor X", "Magneto", "Mystique", "Psylocke", "Silver Surfer", "Galactus", "Thanos",
-      "Ultron", "Red Skull", "Green Goblin", "Venom", "Doctor Octopus", "Electro", "Iron Fist", "Daredevil", "Ghost Rider", "Moon Knight",
-  ];
-  return `${marvelCharacters[Math.floor(Math.random() * marvelCharacters.length)]}`
+  return `${marvelCharacters[randomDigit(0, marvelCharacters.length)]}`
 }
 
 const generateRandomID = (length = 8) => {
@@ -145,7 +150,7 @@ const generateRandomID = (length = 8) => {
   let result = "";
   for (let i = 0; i < length; i++) {
     // Pick a random character from the chars string
-    result += chars.charAt(Math.floor(Math.random() * chars.length));
+    result += chars.charAt(randomDigit(0, chars.length));
   }
   return result;
 };

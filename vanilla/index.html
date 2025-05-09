@@ -21,26 +21,33 @@
       </div>
     </div>
     <script>
+      const marvelCharacters = [
+          "Spider-Man", "Iron Man", "Captain America", "Thor", "Hulk", "Black Widow", "Hawkeye", "Black Panther", "Doctor Strange", "Captain Marvel",
+          "Wolverine", "Deadpool", "Scarlet Witch", "Vision", "Scott Lang", "Sam Wilson", "Bucky Barnes", "Peter Quill", "Gamora", "Elektra",
+          "Drax the Destroyer", "Rocket Raccoon", "Groot", "Nebula", "Loki", "Quicksilver", "Storm", "Jean Grey",  "Cyclops", "Beast",
+          "Nightcrawler", "Rogue", "Iceman", "Professor X", "Magneto", "Mystique", "Psylocke", "Silver Surfer", "Galactus", "Thanos",
+          "Ultron", "Red Skull", "Green Goblin", "Venom", "Doctor Octopus", "Electro", "Iron Fist", "Daredevil", "Ghost Rider", "Moon Knight",
+      ];
+
+      const randomDigit = (from = 0, to = 100) => {
+          return Math.floor(Math.random() * to) + from;
+      }
+
+      const randomMarvelCharacterName = () => {
+         return `${marvelCharacters[randomDigit(0, marvelCharacters.length)]}`
+      }
+
       const generateRandomID = (length = 8) => {
           const chars =
               "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
           let result = "";
           for (let i = 0; i < length; i++) {
               // Pick a random character from the chars string
-              result += chars.charAt(Math.floor(Math.random() * chars.length));
+              result += chars.charAt(randomDigit(0, chars.length));
           }
           return result;
       };
-      const randomMarvelCharacterName = () => {
-          const marvelCharacters = [
-              "Spider-Man", "Iron Man", "Captain America", "Thor", "Hulk", "Black Widow", "Hawkeye", "Black Panther", "Doctor Strange", "Captain Marvel",
-              "Wolverine", "Deadpool", "Scarlet Witch", "Vision", "Scott Lang", "Sam Wilson", "Bucky Barnes", "Peter Quill", "Gamora", "Elektra",
-              "Drax the Destroyer", "Rocket Raccoon", "Groot", "Nebula", "Loki", "Quicksilver", "Storm", "Jean Grey",  "Cyclops", "Beast",
-              "Nightcrawler", "Rogue", "Iceman", "Professor X", "Magneto", "Mystique", "Psylocke", "Silver Surfer", "Galactus", "Thanos",
-              "Ultron", "Red Skull", "Green Goblin", "Venom", "Doctor Octopus", "Electro", "Iron Fist", "Daredevil", "Ghost Rider", "Moon Knight",
-          ];
-          return `${marvelCharacters[Math.floor(Math.random() * marvelCharacters.length)]}`
-      }
+
       
       if (!localStorage.getItem("userId")) {
           const userId = generateRandomID(10);
