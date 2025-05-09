@@ -36,33 +36,30 @@
       const randomMarvelCharacterName = () => {
          return `${marvelCharacters[randomNumber(0, marvelCharacters.length)]}`
       }
-
+      
       const generateRandomID = (length = 8) => {
-          const chars =
-              "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-          let result = "";
-          for (let i = 0; i < length; i++) {
-              // Pick a random character from the chars string
-              result += chars.charAt(randomNumber(0, chars.length));
-          }
-          return result;
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        let result = "";
+        for (let i = 0; i < length; i++) {
+          result += chars.charAt(randomNumber(0, chars.length));
+        }
+        return result;
       };
 
+      const randomAvatar = (id) => {
+          const _id = id || generateRandomID();
+          const _set = randomNumber(1, 5);
+          const _bg = randomNumber(1, 5);
+          return `https://robohash.org/${_id}?size=300x300&set=set${_set}&bgset=bg${_bg}`
+      }
+
+      const userId = localStorage.getItem("userId") || generateRandomID(10);
+      const userName = localStorage.getItem("userName") || prompt("What's your name?") || randomMarvelCharacterName();
+      const userAvatar = localStorage.getItem("userAvatar") || randomAvatar(id);
       
-      if (!localStorage.getItem("userId")) {
-          const userId = generateRandomID(10);
-          localStorage.setItem("userId", generateRandomID(10));
-      }
-      if (!localStorage.getItem("userName")) {
-          const userName = prompt("What's your name?") || randomMarvelCharacterName()
-          localStorage.setItem("userName", userName);
-      }
-      if (!localStorage.getItem("userAvatar")) {
-          const randomId = localStorage.getItem("userId") || generateRandomID(10);
-          const randomSet  = Math.floor(Math.random() * 5) + 1;
-          const randomBg  = Math.floor(Math.random() * 3);
-          localStorage.setItem("userAvatar", `https://robohash.org/${randomId}?size=300x300&set=set${randomSet}&bgset=bg${randomBg}`);
-      }
+      localStorage.setItem("userId", userId);
+      localStorage.setItem("userName", userName);
+      localStorage.setItem("userAvatar", userAvatar);
     </script>
     <!-- @connectycube/chat-widget - start -->
     <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>

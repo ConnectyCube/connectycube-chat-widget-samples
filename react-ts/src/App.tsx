@@ -1,40 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ConnectyCubeChatWidget from "@connectycube/chat-widget";
 import connectycubeLogo from "/logo.png";
 import "./App.css";
-import useStateRef from "react-usestateref";
 
 function App() {
-  const [userId, setUserId, userIdRef] = useStateRef<string | undefined>();
-  const [userName, setUserName, userNameRef] = useStateRef<string | undefined>();
-  const [userAvatar, setUserAvatar, userAvatarRef] = useStateRef<string | undefined>();
+  const [userId, setUserId] = useState<string | undefined>();
+  const [userName, setUserName] = useState<string | undefined>();
+  const [userAvatar, setUserAvatar] = useState<string | undefined>();
 
   useEffect(() => {
-    if (!userIdRef.current) {
-      const id = localStorage.getItem("userId") || generateRandomID(10);
+    const id = localStorage.getItem("userId") || generateRandomID(10);
+    const name = localStorage.getItem("userName") || prompt("What's your name?") || randomMarvelCharacterName();
+    const avatar = localStorage.getItem("userAvatar") || randomAvatar(id);
+    
+    localStorage.setItem("userId", id);
+    localStorage.setItem("userName", name);
+    localStorage.setItem("userAvatar", avatar);
 
-      localStorage.setItem("userId", id);
-      setUserId(id);
-    }
-    if (!userNameRef.current) {
-      const name = localStorage.getItem("userName") || prompt("What's your name?") || randomMarvelCharacterName();
-
-      localStorage.setItem("userName", name);
-      setUserName(name);
-    }
-    if (!userAvatarRef.current) {
-      let avatar = localStorage.getItem("userAvatar")
-
-      if (!avatar) {
-        const randomId = userIdRef.current || generateRandomID(10);
-        const randomSet = randomNumber(1, 5);
-        const randomBg = randomNumber(0, 3);
-        avatar = `https://robohash.org/${randomId}?size=300x300&set=set${randomSet}&bgset=bg${randomBg}`;
-      }
-
-      localStorage.setItem("userAvatar", avatar);
-      setUserAvatar(userAvatar);
-    }
+    setUserId(id);
+    setUserName(name);
+    setUserAvatar(avatar);
   }, []);
 
   return (
@@ -129,11 +114,11 @@ function App() {
 export default App;
 
 const marvelCharacters = [
-    "Spider-Man", "Iron Man", "Captain America", "Thor", "Hulk", "Black Widow", "Hawkeye", "Black Panther", "Doctor Strange", "Captain Marvel",
-    "Wolverine", "Deadpool", "Scarlet Witch", "Vision", "Scott Lang", "Sam Wilson", "Bucky Barnes", "Peter Quill", "Gamora", "Elektra",
-    "Drax the Destroyer", "Rocket Raccoon", "Groot", "Nebula", "Loki", "Quicksilver", "Storm", "Jean Grey",  "Cyclops", "Beast",
-    "Nightcrawler", "Rogue", "Iceman", "Professor X", "Magneto", "Mystique", "Psylocke", "Silver Surfer", "Galactus", "Thanos",
-    "Ultron", "Red Skull", "Green Goblin", "Venom", "Doctor Octopus", "Electro", "Iron Fist", "Daredevil", "Ghost Rider", "Moon Knight",
+  "Spider-Man", "Iron Man", "Captain America", "Thor", "Hulk", "Black Widow", "Hawkeye", "Black Panther", "Doctor Strange", "Captain Marvel",
+  "Wolverine", "Deadpool", "Scarlet Witch", "Vision", "Scott Lang", "Sam Wilson", "Bucky Barnes", "Peter Quill", "Gamora", "Elektra",
+  "Drax the Destroyer", "Rocket Raccoon", "Groot", "Nebula", "Loki", "Quicksilver", "Storm", "Jean Grey",  "Cyclops", "Beast",
+  "Nightcrawler", "Rogue", "Iceman", "Professor X", "Magneto", "Mystique", "Psylocke", "Silver Surfer", "Galactus", "Thanos",
+  "Ultron", "Red Skull", "Green Goblin", "Venom", "Doctor Octopus", "Electro", "Iron Fist", "Daredevil", "Ghost Rider", "Moon Knight",
 ];
 
 const randomNumber = (from: number = 0, to: number = 100) => {
@@ -145,12 +130,17 @@ const randomMarvelCharacterName = () => {
 }
 
 const generateRandomID = (length = 8) => {
-  const chars =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let result = "";
   for (let i = 0; i < length; i++) {
-    // Pick a random character from the chars string
     result += chars.charAt(randomNumber(0, chars.length));
   }
   return result;
 };
+
+const randomAvatar = (id?: string | number) => {
+  const _id = id || generateRandomID();
+  const _set = randomNumber(1, 5);
+  const _bg = randomNumber(1, 5);
+  return `https://robohash.org/${_id}?size=300x300&set=set${_set}&bgset=bg${_bg}`
+}
