@@ -9,12 +9,13 @@ function App() {
   const [userAvatar, setUserAvatar] = useState<string | undefined>();
 
   useEffect(() => {
-    const id = localStorage.getItem("userId") || generateRandomID(10);
+    const { user } = JSON.parse(localStorage.getItem('@connectycube/chat-widget:session') || '{}');
+    const id = localStorage.getItem("userId") || user?.external_id || generateRandomID(10);
     const name =
-      localStorage.getItem("userName") ||
+      localStorage.getItem("userName") || user?.full_name ||
       prompt("What's your name?") ||
       randomMarvelCharacterName();
-    const avatar = localStorage.getItem("userAvatar") || randomAvatar(id);
+    const avatar = localStorage.getItem("userAvatar") || user?.external_id || randomAvatar(id);
 
     localStorage.setItem("userId", id);
     localStorage.setItem("userName", name);
@@ -66,7 +67,7 @@ function App() {
           playSound
           webPushNotifications
           webPushVapidPublicKey="BEzSbibTbmBN0wZWd2-ouzv4N-Ljr0idzOndkZ_dB-6HZIUTKewVbfjcRmuOUChK76NhmjICJNWjlBq288yU3IA"
-          serviceWorkerPath="/web-push-sw.js"
+          serviceWorkerPath="/connectycube-chat-widget-sw.js"
           enableUserStatuses
           enableContentReporting
           enableBlockList
@@ -179,6 +180,6 @@ const generateRandomID = (length = 8) => {
 const randomAvatar = (id?: string | number) => {
   const _id = id || generateRandomID();
   const _set = randomNumber(1, 5);
-  const _bg = randomNumber(1, 5);
+  const _bg = randomNumber(0, 3);
   return `https://robohash.org/${_id}?size=300x300&set=set${_set}&bgset=bg${_bg}`;
 };

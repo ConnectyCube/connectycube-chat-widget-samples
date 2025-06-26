@@ -49,14 +49,15 @@
       const randomAvatar = (id) => {
         const _id = id || generateRandomID();
         const _set = randomNumber(1, 5);
-        const _bg = randomNumber(1, 5);
+        const _bg = randomNumber(0, 3);
         return `https://robohash.org/${_id}?size=300x300&set=set${_set}&bgset=bg${_bg}`
       }
 
-      const userId = localStorage.getItem("userId") || generateRandomID(10);
-      const userName = localStorage.getItem("userName") || prompt("What's your name?") || randomMarvelCharacterName();
-      const userAvatar = localStorage.getItem("userAvatar") || randomAvatar(userId);
-      
+      const { user } = JSON.parse(localStorage.getItem('@connectycube/chat-widget:session') || '{}');
+      const userId = localStorage.getItem('userId') || user?.external_id || generateRandomID(10);
+      const userName = localStorage.getItem('userName') || user?.full_name || prompt("What's your name?") || randomMarvelCharacterName();
+      const userAvatar = localStorage.getItem('userAvatar') || user?.avatar || generateRandomAvatar(userId);
+
       localStorage.setItem("userId", userId);
       localStorage.setItem("userName", userName);
       localStorage.setItem("userAvatar", userAvatar);
@@ -76,7 +77,7 @@
         config: { debug: { mode: 1 } },
 
         // view mode
-        splitView: true,
+        splitView: true,  
         showOnlineUsersTab: true,
  
         // user info
@@ -107,7 +108,7 @@
         // push notifications
         webPushNotifications: true,
         webPushVapidPublicKey: "BEzSbibTbmBN0wZWd2-ouzv4N-Ljr0idzOndkZ_dB-6HZIUTKewVbfjcRmuOUChK76NhmjICJNWjlBq288yU3IA",
-        serviceWorkerPath: "./public/web-push-sw.js",
+        serviceWorkerPath: "./public/connectycube-chat-widget-sw.js",
         
         // moderation
         enableContentReporting: true,
