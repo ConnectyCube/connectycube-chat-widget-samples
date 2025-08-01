@@ -1,5 +1,148 @@
 # ConnectyCube Chat Widget changelog
 
+## 0.33.0
+
+### Features
+
+- new prop `imgLogoSource` to use custom logo. Default is `'/logo.png'` relative to the site's `index.html`
+- login/register screen
+  - new prop `enableUserLogin` to enable the user login/register feature
+  - allows user logout if the `enableUserLogin` prop is enabled
+- single view mode (support chat)
+  - new prop `singleView` to enable a support chat feature
+  - new prop `singleViewChat` to set set chat for the support chat feature. `singleViewChat: { opponentUserIds: string | string[]; name?: string; photo?: string }`
+    - `singleViewChat`'s property `opponentUserIds: string | string[]` to set opponent(s) ID/IDs for a support chat. Use separators, such as `","`, `", "`, or `" "`, or array of strings to add more IDs to the chat
+    - `singleViewChat`'s property `name?: string` to set the support chat's name
+    - `singleViewChat`'s property `photo?: string` to set the support chat's photo. Use a relative path to an image file, a URL, or ConnectyCube file's UID
+  - new prop `termsAndConditions` to set link for "Terms and conditions"
+- new supported variables in `.env`:
+  - `CHAT_WIDGET_CONNECTYCUBE_SINGLE_VIEW_CHAT_OPPONENTS_IDS` to set default opponent(s) ID/IDs for a support chat
+  - `CHAT_WIDGET_CONNECTYCUBE_SINGLE_VIEW_CHAT_NAME` to set the displayed default support chat's name
+  - `CHAT_WIDGET_CONNECTYCUBE_SINGLE_VIEW_CHAT_ICON` to set the default icon source for the support chat's photo
+  - `CHAT_WIDGET_CONNECTYCUBE_TERMS_AND_CONDITIONS` to set default link for "Terms and conditions"
+
+### Updated
+
+- updated `attachmentsAccept` prop to support `null`, which hides the attachment button
+
+### Misc
+
+- new supported variables in `.env`:
+  - `CHAT_WIDGET_CONNECTYCUBE_WEB_PUSH_VAPID_PUBLIC_KEY` as default for `webPushVapidPublicKey` prop
+  - `CHAT_WIDGET_CONNECTYCUBE_WEB_PUSH_SERVICE_WORKER_PATH` as default for `serviceWorkerPath` prop
+
+## 0.32.1
+
+### Misc
+
+- upgraded `connectycube` to version `4.7.1`
+- upgraded `@connectycube/use-chat` to version `0.26.2`
+
+## 0.32.0
+
+### Misc
+
+- SSR (Server-Side Rendering) support
+  - implemented `localStorage` and `document` guards
+  - updated authentication logic
+
+### Fixed
+
+- removed unnecessary text from `README.md`
+- word "Messed" changed to "Missed" in `en/translation.json` file
+- resets specific store data to prevent displaying the useless toast about a missed call
+
+## 0.31.0
+
+### Misc
+
+- Uses the `<VList/>` component from the `virtua` scroll library
+- Added infinite scroll to load and prepend earlier messages in chat history
+- Added infinite scroll to load and append more dialogs in the chat list
+- Updated messages styles and alignment
+- Updated dialog list styles
+- Can open the widget by clicking on the push notification
+
+### Fixed
+
+- Playing stop call audio on app start
+
+## 0.30.2
+
+### Fixed
+
+- Unknown caller name
+
+## 0.30.1
+
+### Fixed
+
+- Establishes stream-management after reconnecting to the chat
+
+## 0.30.0
+
+### Misc
+
+- Ability to establish the chat connection with new parameters after restoring an expired API session
+
+### Bug fixed
+
+- mobile view styles
+- chat & messages styles
+
+## 0.29.0
+
+### Features
+
+- p2p video and audio calls
+  - new prop `enableCalls` to enable the calls feature
+  - mute/unmute video and audio tracks
+  - fullscreen view option for remote stream
+  - screen-sharing
+
+### Misc
+
+- Can restore expired API session
+
+### Bug fixed
+
+- Display typing status in chat header
+
+## 0.27.0
+
+### Misc
+
+- Responsive styles based on a prop `portalStyle: { fontSize: ...px }`
+
+## 0.26.1
+
+### Misc
+
+- Set `max-width: 360px` for sidebar
+- Opponent messages in group chats are now grouped
+- User status is only shown to online users
+- Show's a notification about total unread messages count after the chat was reconnected
+
+### Bug fixes
+
+- Now refreshes chat list after reconnecting
+
+## 0.26.0
+
+### Features
+
+- Shows overlay while the chat widget is open
+  - new prop `disableEscKeyPress` to disable closing the chat widget by pressing "esc" button. Default is **false**
+  - new prop `overlayStyle` to customize the overlay
+
+### Bug fixes
+
+- `defaultChat`: error happens if open chat widget quickly after page refresh
+- Fixed embedded mode
+- Prevent click-outside and lock-scroll in embedded mode
+- The attachment button "cursor-pointer" style is broken
+- The `window.ConnectyCubeChatWidget.toggle()` function was fixed for UMD build (Vanilla JS)
+
 ## 0.25.0
 
 ### Features
