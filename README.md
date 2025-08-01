@@ -28,7 +28,7 @@ Follow ConnectyCube chat widget [integration documentation](https://www.npmjs.co
 
 ## Have an issue?
 
-Join our [Discord](https://discord.com/invite/zqbBWNCCFJ) community to get real-time help from our team
+Join our [Discord](https://discord.com/invite/zqbBWNCCFJ) community to get real-time help from our team or create an issue at [GitHub issues page](https://github.com/ConnectyCube/connectycube-chat-widget-samples/issues).
 
 ## Community
 
