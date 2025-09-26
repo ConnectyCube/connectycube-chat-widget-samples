@@ -1,5 +1,32 @@
 # ConnectyCube Chat Widget changelog
 
+## 0.35.0
+
+### Bug Fixes
+
+- “Unknown“ user name and login issue on first open
+
+### Chores
+
+- imports build of the Chat Widget for react@19 as default for ESM. Use `import ChatWidget from "@connectycube/chat-widget/react18"` to import the build for react@18
+
+<a name="0.34.0"></a>
+
+## 0.34.0
+
+### Chores
+
+- new commands in `package.json` to bump major/minor/patch versions
+
+### Features
+
+- call history
+- implemented auto-grow text input for typing message
+- ability to change tone of message for typed text via AI
+- AI text summarization in chat
+- new prop `ai` to configure AI options. `ai: { apiKey: string; textSummarization?: boolean; changeMessageTone?: boolean; }`
+- supported new variable `CHAT_WIDGET_CONNECTYCUBE_GOOGLE_GENERATIVE_AI_API_KEY` in `.env` to set `ai.apiKey` for "gemini-2.5-flash" model
+
 ## 0.33.0
 
 ### Features

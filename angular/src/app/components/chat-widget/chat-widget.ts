@@ -52,6 +52,11 @@ export class ChatWidget implements AfterViewInit, OnDestroy {
       showChatStatus: true,
       enableUserStatuses: true,
       enableCalls: true,
+      ai: {
+        changeMessageTone: true,
+        textSummarization: true,
+        apiKey: 'AIzaSyDbRFYOcL84YxzTv18EjnjSPvst-hd-Kgc',
+      },
       onOpenChange: (open: boolean) => console.log('widget open:', open),
       onUnreadCountChange: (count: number) => console.log('unread messages count:', count),
       onOnlineUsersCountChange: (count: number) => console.log('online users count:', count),

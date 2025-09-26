@@ -78,6 +78,11 @@ function App() {
           limitUrlsPreviews={1}
           attachmentsAccept="image/*,video/*,.pdf,audio/*"
           enableCalls
+          ai={{
+            changeMessageTone: true,
+            textSummarization: true,
+            apiKey: 'AIzaSyDbRFYOcL84YxzTv18EjnjSPvst-hd-Kgc',
+          }}
           
           // // uncomment it if you want to place a Chat button bottom Left
           // buttonStyle={{left: '0.5rem', right: 'auto'}}
