@@ -37,7 +37,7 @@ function App() {
           />
         </a>
       </div>
-      <h1>Chat Widget demo</h1>
+      <h1>Chat Widget demo (React)</h1>
       <br />
       <p>Click the blue Chat button bottom right to open a chat</p>
       {userId && (
