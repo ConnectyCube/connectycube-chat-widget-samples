@@ -1,7 +1,6 @@
 # ConnectyCube chat widget code samples
 
-
-## Overview 
+## Overview
 
 The repo provides ready code samples of [ConnectyCube chat widget](https://www.npmjs.com/package/@connectycube/chat-widget) integration.
 
@@ -9,10 +8,13 @@ The following code samples available:
 
 - [React](https://github.com/ConnectyCube/connectycube-chat-widget-samples/tree/main/react-ts)
 - [Vanilla JS](https://github.com/ConnectyCube/connectycube-chat-widget-samples/tree/main/vanilla)
+- [Angular](https://github.com/ConnectyCube/connectycube-chat-widget-samples/tree/main/angular)
 
 ## Demo
 
-https://connectycube-chat-widget.onrender.com
+React: <https://connectycube-chat-widget.onrender.com>
+Vanilla JS: <https://connectycube-chat-widget-vanilla.onrender.com>
+Angular: <https://connectycube-chat-widget-angular.onrender.com>
 
 Split-view chat widget:
 

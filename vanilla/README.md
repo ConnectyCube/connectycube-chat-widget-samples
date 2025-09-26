@@ -1,6 +1,6 @@
 # ConnectyCube chat widget Vanilla JS code samples
 
-## Overview 
+## Overview
 
 The repo provides ready code sample of [ConnectyCube chat widget](https://www.npmjs.com/package/@connectycube/chat-widget) integration in Vanilla JS, so can be integrated on any pure JS Web site.
 
@@ -8,7 +8,7 @@ This widget offers an out-of-the-box solution for embedding chat features—such
 
 ## Demo
 
-https://connectycube-chat-widget-vanilla.onrender.com
+<https://connectycube-chat-widget-vanilla.onrender.com>
 
 Split-view chat widget:
 
@@ -21,7 +21,6 @@ Single-view chat widget:
 ## Running Locally
 
 Simply open **index.html** file and enjoy!
-
 
 ## Documentation
 

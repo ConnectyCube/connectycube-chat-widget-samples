@@ -1,15 +1,14 @@
 # ConnectyCube chat widget React code samples
 
+## Overview
 
-## Overview 
-
-The repo provides ready code sample of [ConnectyCube chat widget](https://www.npmjs.com/package/@connectycube/chat-widget) integration. 
+The repo provides ready code sample of [ConnectyCube chat widget](https://www.npmjs.com/package/@connectycube/chat-widget) integration.
 
 Chat widget is a React component that seamlessly integrates ConnectyCube's real-time chat capabilities into your web applications. This widget offers an out-of-the-box solution for embedding chat features—such as instant messaging, user presence, and file sharing—without the overhead of building a complete chat system from scratch.
 
 ## Demo
 
-https://connectycube-chat-widget.onrender.com
+<https://connectycube-chat-widget.onrender.com>
 
 Split-view chat widget:
 

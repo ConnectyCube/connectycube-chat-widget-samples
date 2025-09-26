@@ -1,59 +1,50 @@
-# Angular
+# ConnectyCube chat widget Angular code samples
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.3.
+## Overview
 
-## Development server
+The repo provides ready code sample of [ConnectyCube chat widget](https://www.npmjs.com/package/@connectycube/chat-widget) integration.
 
-To start a local development server, run:
+Chat widget is a React component that seamlessly integrates ConnectyCube's real-time chat capabilities into your web applications. This widget offers an out-of-the-box solution for embedding chat features—such as instant messaging, user presence, and file sharing—without the overhead of building a complete chat system from scratch.
 
-```bash
-ng serve
+## Demo
+
+<https://connectycube-chat-widget-angular.onrender.com>
+
+Split-view chat widget:
+
+<kbd><img alt="ConnectyCube chat widget, split view image demo" src="https://developers.connectycube.com/images/chat_widget/chat-widget-1.png" width="400" /></kbd>
+
+Single-view chat widget:
+
+<kbd><img alt="ConnectyCube chat widget, single view image demo" src="https://developers.connectycube.com/images/chat_widget/chat-widget-2.png" width="400" /></kbd>
+
+## Running Locally
+
+```
+npm i
+npm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Build for Production
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+npm run build
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Documentation
 
-```bash
-ng generate --help
-```
+Follow ConnectyCube chat widget [integration documentation](https://www.npmjs.com/package/@connectycube/chat-widget) for installation guide and available props.
 
-## Building
+## Community and support
 
-To build the project run:
+- [Blog](https://connectycube.com/blog)
+- X (twitter) [@ConnectyCube](https://x.com/ConnectyCube)
+- [Facebook](https://www.facebook.com/ConnectyCube)
 
-```bash
-ng build
-```
+## Website
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+[https://connectycube.com](https://connectycube.com)
 
-## Running unit tests
+## License
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT
