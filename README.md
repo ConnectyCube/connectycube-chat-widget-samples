@@ -12,9 +12,9 @@ The following code samples available:
 
 ## Demo
 
-React: <https://connectycube-chat-widget.onrender.com>
-Vanilla JS: <https://connectycube-chat-widget-vanilla.onrender.com>
-Angular: <https://connectycube-chat-widget-angular.onrender.com>
+- React: <https://connectycube-chat-widget.onrender.com>
+- Vanilla JS: <https://connectycube-chat-widget-vanilla.onrender.com>
+- Angular: <https://connectycube-chat-widget-angular.onrender.com>
 
 Split-view chat widget:
 
