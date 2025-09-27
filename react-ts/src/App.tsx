@@ -44,7 +44,10 @@ function App() {
         <ConnectyCubeChatWidget
           appId="8095"
           authKey="83146458-4544-4D6A-A818-7882D4D8B3E6"
-          config={{ debug: { mode: 1 } }}
+          config={{
+            chat: { streamManagement: { enable: true } },
+            debug: { mode: 1 },
+          }}
           showOnlineUsersTab
           splitView
           userId={userId}
@@ -78,11 +81,6 @@ function App() {
           limitUrlsPreviews={1}
           attachmentsAccept="image/*,video/*,.pdf,audio/*"
           enableCalls
-          ai={{
-            changeMessageTone: true,
-            textSummarization: true,
-            apiKey: 'AIzaSyDbRFYOcL84YxzTv18EjnjSPvst-hd-Kgc',
-          }}
           
           // // uncomment it if you want to place a Chat button bottom Left
           // buttonStyle={{left: '0.5rem', right: 'auto'}}

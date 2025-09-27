@@ -112,18 +112,8 @@ export class ChatWidget implements AfterViewInit, OnDestroy {
       appId: 8095,
       authKey: '83146458-4544-4D6A-A818-7882D4D8B3E6',
       config: {
-        endpoints: {
-          api: 'api.connectycube.com',
-          chat: 'chat.connectycube.com',
-        },
-        chat: {
-          streamManagement: {
-            enable: true,
-          },
-        },
-        debug: {
-          mode: 1,
-        },
+        chat: { streamManagement: { enable: true } },
+        debug: { mode: 1 },
       },
       splitView: true,
       showOnlineUsersTab: true,
@@ -159,11 +149,6 @@ export class ChatWidget implements AfterViewInit, OnDestroy {
       showChatStatus: true,
       enableUserStatuses: true,
       enableCalls: true,
-      ai: {
-        changeMessageTone: true,
-        textSummarization: true,
-        apiKey: 'AIzaSyDbRFYOcL84YxzTv18EjnjSPvst-hd-Kgc',
-      },
       onOpenChange: (open: boolean) => console.log('widget open:', open),
       onUnreadCountChange: (count: number) => console.log('unread messages count:', count),
       onOnlineUsersCountChange: (count: number) => console.log('online users count:', count),
