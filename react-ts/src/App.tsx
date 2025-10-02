@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ConnectyCubeChatWidget from "@connectycube/chat-widget";
-import CONFIG from "./config"
+import CONFIG from "./config";
 import connectycubeLogo from "/logo.png";
 import "./App.css";
 
