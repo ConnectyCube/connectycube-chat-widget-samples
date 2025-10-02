@@ -21,7 +21,7 @@ const CONFIG = {
       enable: `${REPLACE_ENABLE_CALLS}` === "true",
     },
     misc: {
-      previewUrl: REPLACE_ENABLE_URL_PREVIEW === "true",
+      previewUrl: `${REPLACE_ENABLE_URL_PREVIEW}` === "true",
     }
   }
 };
