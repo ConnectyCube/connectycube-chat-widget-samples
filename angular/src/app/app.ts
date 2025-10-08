@@ -1,4 +1,3 @@
-import React from 'react';
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ConnectyCubeChatWidgetComponent } from '@connectycube/chat-widget-angular';
@@ -67,10 +66,15 @@ export class App {
       'Moon Knight',
     ];
 
-    const randomNumber = (from = 0, to = 100) => Math.floor(Math.random() * to) + from;
-    const randomMarvelCharacterName = () =>
-      marvelCharacters[randomNumber(0, marvelCharacters.length)];
-    const generateRandomID = (length = 8) => {
+    const randomNumber = (from: number = 0, to: number = 100) => {
+      return Math.floor(Math.random() * to) + from;
+    };
+
+    const randomMarvelCharacterName = () => {
+      return `${marvelCharacters[randomNumber(0, marvelCharacters.length + 1)]}`;
+    };
+
+    const generateRandomID = (length: number = 8) => {
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
       let result = '';
       for (let i = 0; i < length; i++) {
@@ -78,37 +82,43 @@ export class App {
       }
       return result;
     };
-    const randomAvatar = (id?: string) => {
+
+    const randomAvatar = (id: string | number) => {
       const _id = id || generateRandomID();
       const _set = randomNumber(1, 5);
       const _bg = randomNumber(0, 3);
       return `https://robohash.org/${_id}?size=300x300&set=set${_set}&bgset=bg${_bg}`;
     };
 
-    const session = JSON.parse(localStorage.getItem('@connectycube/chat-widget:session') || '{}');
-    const storedUser = session.user || {};
-
-    const userId =
-      localStorage.getItem('userId') || storedUser?.external_id || generateRandomID(10);
+    const { user } = JSON.parse(localStorage.getItem('@connectycube/chat-widget:session') || '{}');
+    const userId = localStorage.getItem('userId') || user?.external_id || generateRandomID(10);
     const userName =
-      localStorage.getItem('userName') || storedUser?.full_name || randomMarvelCharacterName();
-    const userAvatar =
-      localStorage.getItem('userAvatar') || storedUser?.avatar || randomAvatar(userId);
+      localStorage.getItem('userName') ||
+      user?.full_name ||
+      prompt("What's your name?") ||
+      randomMarvelCharacterName();
+    const userAvatar = localStorage.getItem('userAvatar') || user?.avatar || randomAvatar(userId);
 
     localStorage.setItem('userId', userId);
     localStorage.setItem('userName', userName);
     localStorage.setItem('userAvatar', userAvatar);
 
     return {
+      // credentials
       appId: 8095,
       authKey: '83146458-4544-4D6A-A818-7882D4D8B3E6',
-      config: { chat: { streamManagement: { enable: true } }, debug: { mode: 1 } },
+      config: {
+        chat: { streamManagement: { enable: true } },
+        debug: { mode: 1 },
+      },
+      // view mode
       splitView: true,
       showOnlineUsersTab: true,
-      translation: 'en' as 'en' | 'el' | 'ua',
+      // user info
       userName,
       userId,
       userAvatar,
+      // quick actions
       quickActions: {
         title: 'Quick Actions',
         description:
@@ -120,26 +130,48 @@ export class App {
           'Goodbye and take care!',
         ],
       },
+      // language
+      translation: 'en' as const,
+      // notifications
+      // muted: true,
       showNotifications: true,
       playSound: true,
+      // push notifications
       webPushNotifications: true,
       webPushVapidPublicKey:
         'BEzSbibTbmBN0wZWd2-ouzv4N-Ljr0idzOndkZ_dB-6HZIUTKewVbfjcRmuOUChK76NhmjICJNWjlBq288yU3IA',
       serviceWorkerPath: '/connectycube-chat-widget-sw.js',
+      // moderation
       enableContentReporting: true,
       enableBlockList: true,
+      // last seen
       enableLastSeen: true,
+      // online users badge
       enableOnlineUsersBadge: true,
       getOnlineUsersInterval: 180,
+      // url preview
       enableUrlPreview: true,
       limitUrlsPreviews: 1,
-      attachmentsAccept: null,
+      // attachments settings
+      attachmentsAccept: 'image/*,video/*,.pdf,audio/*',
+      // chat connection indicator
       showChatStatus: true,
+      // user statuses
       enableUserStatuses: true,
+      // video/audio calls
       enableCalls: true,
-      onOpenChange: (open: boolean) => console.log('widget open:', open),
-      onUnreadCountChange: (count: number) => console.log('unread messages count:', count),
-      onOnlineUsersCountChange: (count: number) => console.log('online users count:', count),
+      // uncomment it if you want to place a Chat button bottom Left
+      // buttonStyle: { "left": "0.5rem", "right": "auto" },
+      // portalStyle: { "left": "0.5rem", "right": "auto" },
+      onOpenChange: (open: boolean) => {
+        console.log('[@connectycube/chat-widget-angular] open:', open);
+      },
+      onUnreadCountChange: (count: number) => {
+        console.log('[@connectycube/chat-widget-angular] unread messages count:', count);
+      },
+      onOnlineUsersCountChange: (count: number) => {
+        console.log('[@connectycube/chat-widget-angular] online users count:', count);
+      },
     };
   }
 }

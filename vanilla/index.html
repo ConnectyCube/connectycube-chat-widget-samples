@@ -34,7 +34,7 @@
       }
 
       const randomMarvelCharacterName = () => {
-        return `${marvelCharacters[randomNumber(0, marvelCharacters.length)]}`
+        return `${marvelCharacters[randomNumber(0, marvelCharacters.length + 1)]}`
       }
       
       const generateRandomID = (length = 8) => {
@@ -56,7 +56,7 @@
       const { user } = JSON.parse(localStorage.getItem('@connectycube/chat-widget:session') || '{}');
       const userId = localStorage.getItem('userId') || user?.external_id || generateRandomID(10);
       const userName = localStorage.getItem('userName') || user?.full_name || prompt("What's your name?") || randomMarvelCharacterName();
-      const userAvatar = localStorage.getItem('userAvatar') || user?.avatar || generateRandomAvatar(userId);
+      const userAvatar = localStorage.getItem('userAvatar') || user?.avatar || randomAvatar(userId);
 
       localStorage.setItem("userId", userId);
       localStorage.setItem("userName", userName);

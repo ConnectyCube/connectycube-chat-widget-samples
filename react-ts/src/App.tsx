@@ -167,7 +167,7 @@ const randomNumber = (from: number = 0, to: number = 100) => {
 };
 
 const randomMarvelCharacterName = () => {
-  return `${marvelCharacters[randomNumber(0, marvelCharacters.length)]}`;
+  return `${marvelCharacters[randomNumber(0, marvelCharacters.length + 1)]}`;
 };
 
 const generateRandomID = (length = 8) => {
