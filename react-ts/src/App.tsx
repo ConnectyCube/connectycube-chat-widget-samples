@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ConnectyCubeChatWidget from "@connectycube/chat-widget";
+import ConnectyCubeChatWidget from "@connectycube/chat-widget/react18";
 import connectycubeLogo from "/logo.png";
 import "./App.css";
 
