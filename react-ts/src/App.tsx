@@ -21,9 +21,9 @@ function App() {
     localStorage.setItem("userName", name);
     localStorage.setItem("userAvatar", avatar);
 
-    setUserId(id);
-    setUserName(name);
-    setUserAvatar(avatar);
+    queueMicrotask(() => setUserId(id));
+    queueMicrotask(() => setUserName(name));
+    queueMicrotask(() => setUserAvatar(avatar));
   }, []);
 
   return (
