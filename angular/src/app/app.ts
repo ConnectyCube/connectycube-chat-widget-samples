@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ConnectyCubeChatWidgetComponent } from '@connectycube/chat-widget-angular';
+import { ConnectyCubeChatWidgetComponent } from '@connectycube/chat-widget-angular/react18';
 
 @Component({
   selector: 'app-root',
