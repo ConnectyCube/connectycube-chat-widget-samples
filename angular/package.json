@@ -28,7 +28,7 @@
     "@angular/forms": "^20.3.9",
     "@angular/platform-browser": "^20.3.9",
     "@angular/router": "^20.3.9",
-    "@connectycube/chat-widget-angular": "0.37.5",
+    "@connectycube/chat-widget-angular": "0.37.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "rxjs": "~7.8.2",
