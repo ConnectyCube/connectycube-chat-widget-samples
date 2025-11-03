@@ -11,7 +11,11 @@ const CONFIG = {
     },
     notification: {
       show: `${REPLACE_ENABLE_SHOW_NOTIFICATIONS}` === "true",
-      playSound: `${REPLACE_ENABLE_PLAY_SOUND}` === "true"
+      playSound: `${REPLACE_ENABLE_PLAY_SOUND}` === "true",
+      webPush: {
+        enable: true,
+        publicKey: "BEzSbibTbmBN0wZWd2-ouzv4N-Ljr0idzOndkZ_dB-6HZIUTKewVbfjcRmuOUChK76NhmjICJNWjlBq288yU3IA"
+      }
     },
     moderation: {
       contentReporting: `${REPLACE_ENABLE_CONTENT_REPORTING}` === "true",

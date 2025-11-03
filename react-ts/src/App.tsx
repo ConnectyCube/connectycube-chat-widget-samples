@@ -81,8 +81,8 @@ function App() {
             ],
           }}
           translation={"en"}
-          webPushNotifications
-          webPushVapidPublicKey="BEzSbibTbmBN0wZWd2-ouzv4N-Ljr0idzOndkZ_dB-6HZIUTKewVbfjcRmuOUChK76NhmjICJNWjlBq288yU3IA"
+          webPushNotifications={CONFIG.widget.notification.webPush.enable}
+          webPushVapidPublicKey={CONFIG.widget.notification.webPush.publicKey}
           serviceWorkerPath="/connectycube-chat-widget-sw.js"
           enableOnlineUsersBadge
           getOnlineUsersInterval={180}

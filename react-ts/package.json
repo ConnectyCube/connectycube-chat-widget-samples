@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "rm -rf dist && tsc -b && vite build && node post-build.js",
+    "build": "rm -rf dist && tsc -b && vite build",
+    "build:dist": "npm run build && node post-build.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
