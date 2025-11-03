@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ConnectyCubeChatWidget from "@connectycube/chat-widget";
+import ConnectyCubeChatWidget from "@connectycube/chat-widget/react18";
 import CONFIG from "./config";
 import connectycubeLogo from "/logo.png";
 import "./App.css";
@@ -22,9 +22,9 @@ function App() {
     localStorage.setItem("userName", name);
     localStorage.setItem("userAvatar", avatar);
 
-    setUserId(id);
-    setUserName(name);
-    setUserAvatar(avatar);
+    queueMicrotask(() => setUserId(id));
+    queueMicrotask(() => setUserName(name));
+    queueMicrotask(() => setUserAvatar(avatar));
   }, []);
 
   return (
@@ -174,7 +174,7 @@ const randomNumber = (from: number = 0, to: number = 100) => {
 };
 
 const randomMarvelCharacterName = () => {
-  return `${marvelCharacters[randomNumber(0, marvelCharacters.length)]}`;
+  return `${marvelCharacters[randomNumber(0, marvelCharacters.length + 1)]}`;
 };
 
 const generateRandomID = (length = 8) => {

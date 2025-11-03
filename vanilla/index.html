@@ -34,7 +34,7 @@
       }
 
       const randomMarvelCharacterName = () => {
-        return `${marvelCharacters[randomNumber(0, marvelCharacters.length)]}`
+        return `${marvelCharacters[randomNumber(0, marvelCharacters.length + 1)]}`
       }
       
       const generateRandomID = (length = 8) => {
@@ -56,7 +56,7 @@
       const { user } = JSON.parse(localStorage.getItem('@connectycube/chat-widget:session') || '{}');
       const userId = localStorage.getItem('userId') || user?.external_id || generateRandomID(10);
       const userName = localStorage.getItem('userName') || user?.full_name || prompt("What's your name?") || randomMarvelCharacterName();
-      const userAvatar = localStorage.getItem('userAvatar') || user?.avatar || generateRandomAvatar(userId);
+      const userAvatar = localStorage.getItem('userAvatar') || user?.avatar || randomAvatar(userId);
 
       localStorage.setItem("userId", userId);
       localStorage.setItem("userName", userName);
@@ -65,8 +65,8 @@
     <!-- @connectycube/chat-widget - start -->
     <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/connectycube@4/dist/connectycube.min.js"></script>
-    <script src="https://unpkg.com/@connectycube/chat-widget@latest/dist/index.umd.js"></script>
+    <script src="https://unpkg.com/connectycube@4.7.16/dist/connectycube.min.js"></script>
+    <script src="https://unpkg.com/@connectycube/chat-widget@0.37.6/dist/index.umd.js"></script>
     <!-- <script src="../../connectycube-chat-widget/dist/index.umd.js"></script> -->
     <script>
       const chatWidgetContainer = document.createElement('div');
