@@ -28,7 +28,7 @@ Register new account and application at https://admin.connectycube.com and take 
 APP_ID=8095 APP_AUTH_KEY=83146458-4544-4D6A-A818-7882D4D8B3E6 sh apply-default-config.sh
 ```
 
-You can edit config (src/config) your self by replacing placeholder variables ('REPLACE_APP_ID', 'REPLACE_APP_AUTH_KEY' etc.)
+You can edit config (public/config) your self by replacing placeholder variables ('REPLACE_APP_ID', 'REPLACE_APP_AUTH_KEY' etc.)
 
 ### Run Locally
 
