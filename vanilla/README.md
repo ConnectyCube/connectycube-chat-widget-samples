@@ -22,10 +22,11 @@ Single-view chat widget:
 
 ### Configure
 
-Register new account and application at https://admin.connectycube.com and take Application credentials ( App Id and Auth Key) from 'Overview -> Credentials' page
+Register new account and application at https://admin.connectycube.com and take Application credentials ( App Id and Auth Key) from 'Overview -> Credentials' page.
 
+Generate default widget config with your credentials:
 ```
-APP_ID=8095 APP_AUTH_KEY=83146458-4544-4D6A-A818-7882D4D8B3E6 sh apply-default-config.sh
+APP_ID=123 APP_AUTH_KEY=... sh apply-default-config.sh
 ```
 
 You can edit config (public/config) your self by replacing placeholder variables ('REPLACE_APP_ID', 'REPLACE_APP_AUTH_KEY' etc.)
