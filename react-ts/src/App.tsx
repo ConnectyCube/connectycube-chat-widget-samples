@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ConnectyCubeChatWidget from "@connectycube/chat-widget/react18";
+import CONFIG from "./config";
 import connectycubeLogo from "/logo.png";
 import "./App.css";
 
@@ -42,8 +43,23 @@ function App() {
       <p>Click the blue Chat button bottom right to open a chat</p>
       {userId && (
         <ConnectyCubeChatWidget
-          appId="8095"
-          authKey="83146458-4544-4D6A-A818-7882D4D8B3E6"
+          appId={CONFIG.credentials.appId}
+          authKey={CONFIG.credentials.authKey}
+
+          enableUserStatuses={CONFIG.widget.userPresence.userStatuses}
+          showChatStatus={CONFIG.widget.userPresence.chatStatus}
+          enableLastSeen={CONFIG.widget.userPresence.lastSeen}
+
+          showNotifications={CONFIG.widget.notification.show}
+          playSound={CONFIG.widget.notification.playSound}
+
+          enableContentReporting={CONFIG.widget.moderation.contentReporting}
+          enableBlockList={CONFIG.widget.moderation.blockList}
+
+          enableCalls={CONFIG.widget.calls.enable}
+
+          enableUrlPreview={CONFIG.widget.misc.previewUrl}
+
           config={{
             chat: { streamManagement: { enable: true } },
             debug: { mode: 1 },
@@ -65,22 +81,13 @@ function App() {
             ],
           }}
           translation={"en"}
-          showChatStatus
-          showNotifications
-          playSound
-          webPushNotifications
-          webPushVapidPublicKey="BEzSbibTbmBN0wZWd2-ouzv4N-Ljr0idzOndkZ_dB-6HZIUTKewVbfjcRmuOUChK76NhmjICJNWjlBq288yU3IA"
+          webPushNotifications={CONFIG.widget.notification.webPush.enable}
+          webPushVapidPublicKey={CONFIG.widget.notification.webPush.publicKey}
           serviceWorkerPath="/connectycube-chat-widget-sw.js"
-          enableUserStatuses
-          enableContentReporting
-          enableBlockList
-          enableLastSeen
           enableOnlineUsersBadge
           getOnlineUsersInterval={180}
-          enableUrlPreview
           limitUrlsPreviews={1}
           attachmentsAccept="image/*,video/*,.pdf,audio/*"
-          enableCalls
           
           // // uncomment it if you want to place a Chat button bottom Left
           // buttonStyle={{left: '0.5rem', right: 'auto'}}

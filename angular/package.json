@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:dist": "rm -rf dist && ng build --stats-json && sh post-build.sh",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

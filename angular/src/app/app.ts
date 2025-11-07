@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ConnectyCubeChatWidgetComponent } from '@connectycube/chat-widget-angular/react18';
+import CONFIG from './config';
 
 @Component({
   selector: 'app-root',
@@ -105,8 +106,8 @@ export class App {
 
     return {
       // credentials
-      appId: 8095,
-      authKey: '83146458-4544-4D6A-A818-7882D4D8B3E6',
+      appId: CONFIG.credentials.appId,
+      authKey: CONFIG.credentials.authKey,
       config: {
         chat: { streamManagement: { enable: true } },
         debug: { mode: 1 },
@@ -134,32 +135,31 @@ export class App {
       translation: 'en' as const,
       // notifications
       // muted: true,
-      showNotifications: true,
-      playSound: true,
+      showNotifications: CONFIG.widget.notification.show,
+      playSound: CONFIG.widget.notification.playSound,
       // push notifications
-      webPushNotifications: true,
-      webPushVapidPublicKey:
-        'BEzSbibTbmBN0wZWd2-ouzv4N-Ljr0idzOndkZ_dB-6HZIUTKewVbfjcRmuOUChK76NhmjICJNWjlBq288yU3IA',
+      webPushNotifications: CONFIG.widget.notification.webPush.enable,
+      webPushVapidPublicKey: CONFIG.widget.notification.webPush.publicKey,
       serviceWorkerPath: '/connectycube-chat-widget-sw.js',
       // moderation
-      enableContentReporting: true,
-      enableBlockList: true,
+      enableContentReporting: CONFIG.widget.moderation.contentReporting,
+      enableBlockList: CONFIG.widget.moderation.blockList,
       // last seen
-      enableLastSeen: true,
+      enableLastSeen: CONFIG.widget.userPresence.lastSeen,
       // online users badge
       enableOnlineUsersBadge: true,
       getOnlineUsersInterval: 180,
       // url preview
-      enableUrlPreview: true,
+      enableUrlPreview: CONFIG.widget.misc.previewUrl,
       limitUrlsPreviews: 1,
       // attachments settings
       attachmentsAccept: 'image/*,video/*,.pdf,audio/*',
       // chat connection indicator
-      showChatStatus: true,
+      showChatStatus: CONFIG.widget.userPresence.chatStatus,
       // user statuses
-      enableUserStatuses: true,
+      enableUserStatuses: CONFIG.widget.userPresence.userStatuses,
       // video/audio calls
-      enableCalls: true,
+      enableCalls: CONFIG.widget.calls.enable,
       // uncomment it if you want to place a Chat button bottom Left
       // buttonStyle: { "left": "0.5rem", "right": "auto" },
       // portalStyle: { "left": "0.5rem", "right": "auto" },

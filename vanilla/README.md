@@ -18,7 +18,19 @@ Single-view chat widget:
 
 <kbd><img alt="ConnectyCube chat widget, single view image demo" src="https://developers.connectycube.com/images/chat_widget/chat-widget-2.png" width="400" /></kbd>
 
-## Running Locally
+## Setup
+
+### Configure
+
+Register new account and application at https://admin.connectycube.com and take Application credentials ( App Id and Auth Key) from 'Overview -> Credentials' page
+
+```
+APP_ID=8095 APP_AUTH_KEY=83146458-4544-4D6A-A818-7882D4D8B3E6 sh apply-default-config.sh
+```
+
+You can edit config (public/config) your self by replacing placeholder variables ('REPLACE_APP_ID', 'REPLACE_APP_AUTH_KEY' etc.)
+
+### Run Locally
 
 Simply open **index.html** file and enjoy!
 
