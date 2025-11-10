@@ -8,4 +8,4 @@ const DIST_PATH = path.resolve("./dist/")
 const manifest = require(path.join(DIST_PATH, ".vite/manifest.json"))
 const mainFileName = manifest['index.html']['file']
 
-fs.writeFileSync(path.join(DIST_PATH, '.config-files'), mainFileName, {  encoding: 'utf8' })
+fs.writeFileSync(path.join(DIST_PATH, ".config-files"), mainFileName, {  encoding: 'utf8' })
