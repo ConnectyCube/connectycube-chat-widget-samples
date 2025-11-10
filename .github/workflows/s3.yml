@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'react-ts/**'
+      - '.github/workflows/s3.yml'
 
 jobs:
   upload:
@@ -31,10 +32,9 @@ jobs:
         run: tar -czf react-ts-dist.tar.gz -C react-ts dist
 
       - name: Upload to S3
-        uses: shallwefootball/s3-upload-action@master
-        with:
-          aws_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_bucket: ${{ secrets.AWS_BUCKET }}
-          source_dir: 'react-ts-dist.tar.gz'
-          destination_dir: 'chat-widget-sample-react-ts'
+        run: |
+          aws s3 cp react-ts-dist.tar.gz s3://${{ secrets.AWS_BUCKET }}/chat-widget-sample-react-ts/react-ts-dist.tar.gz
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'us-east-1'
