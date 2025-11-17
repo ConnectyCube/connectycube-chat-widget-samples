@@ -11,3 +11,4 @@ declare const REPLACE_ENABLE_BLOCK_LIST: string;
 declare const REPLACE_ENABLE_CALLS: string;
 
 declare const REPLACE_ENABLE_URL_PREVIEW: string;
+declare const REPLACE_ENABLE_EMBED_VIEW: string;

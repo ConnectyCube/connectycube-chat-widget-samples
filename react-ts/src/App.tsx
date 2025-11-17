@@ -27,8 +27,88 @@ function App() {
     queueMicrotask(() => setUserAvatar(avatar));
   }, []);
 
+  const widget = userId && (
+    <ConnectyCubeChatWidget
+      appId={CONFIG.credentials.appId}
+      authKey={CONFIG.credentials.authKey}
+
+      enableUserStatuses={CONFIG.widget.userPresence.userStatuses}
+      showChatStatus={CONFIG.widget.userPresence.chatStatus}
+      enableLastSeen={CONFIG.widget.userPresence.lastSeen}
+
+      showNotifications={CONFIG.widget.notification.show}
+      playSound={CONFIG.widget.notification.playSound}
+
+      enableContentReporting={CONFIG.widget.moderation.contentReporting}
+      enableBlockList={CONFIG.widget.moderation.blockList}
+
+      enableCalls={CONFIG.widget.calls.enable}
+
+      enableUrlPreview={CONFIG.widget.misc.previewUrl}
+
+      config={{
+        chat: { streamManagement: { enable: true } },
+        debug: { mode: 1 },
+        ...CONFIG.config
+      }}
+      showOnlineUsersTab
+      splitView
+      embedView={CONFIG.widget.misc.embedView}
+      userId={userId}
+      userName={userName}
+      userAvatar={userAvatar}
+      quickActions={{
+        title: "Quick Actions",
+        description:
+          "Select an action from the options below or type a first message to start a conversation.",
+        actions: [
+          "Hello there!",
+          "How are you doing today?",
+          "What features of the ConnectyCube SDK do you find most useful and how have they improved your development process?",
+          "Goodbye and take care!",
+        ],
+      }}
+      translation={"en"}
+      webPushNotifications={CONFIG.widget.notification.webPush.enable}
+      webPushVapidPublicKey={CONFIG.widget.notification.webPush.publicKey}
+      serviceWorkerPath="/connectycube-chat-widget-sw.js"
+      enableOnlineUsersBadge
+      getOnlineUsersInterval={180}
+      limitUrlsPreviews={1}
+      attachmentsAccept="image/*,video/*,.pdf,audio/*"
+      
+      // // uncomment it if you want to place a Chat button bottom Left
+      // buttonStyle={{left: '0.5rem', right: 'auto'}}
+      // portalStyle={{left: '0.5rem', right: 'auto'}}
+
+      onOpenChange={(open: boolean) =>
+        console.log("[@connectycube/chat-widget] open:", open)
+      }
+      onUnreadCountChange={(count: number) =>
+        console.log(
+          "[@connectycube/chat-widget] unread messages count:",
+          count
+        )
+      }
+      onOnlineUsersCountChange={(count: number) => {
+        console.log(
+          "[@connectycube/chat-widget] online users count:",
+          count
+        );
+      }}
+    />
+  )
+
+  if (CONFIG.widget.misc.embedView) {
+    return (
+      <div style={{width: '100vw', height: '100vh'}}>
+        { widget }
+      </div>
+    )
+  }
+
   return (
-    <>
+    <div id="main-container">
       <div>
         <a href="https://connectycube.com" target="_blank">
           <img
@@ -41,76 +121,8 @@ function App() {
       <h1>Chat Widget demo (React)</h1>
       <br />
       <p>Click the blue Chat button bottom right to open a chat</p>
-      {userId && (
-        <ConnectyCubeChatWidget
-          appId={CONFIG.credentials.appId}
-          authKey={CONFIG.credentials.authKey}
-
-          enableUserStatuses={CONFIG.widget.userPresence.userStatuses}
-          showChatStatus={CONFIG.widget.userPresence.chatStatus}
-          enableLastSeen={CONFIG.widget.userPresence.lastSeen}
-
-          showNotifications={CONFIG.widget.notification.show}
-          playSound={CONFIG.widget.notification.playSound}
-
-          enableContentReporting={CONFIG.widget.moderation.contentReporting}
-          enableBlockList={CONFIG.widget.moderation.blockList}
-
-          enableCalls={CONFIG.widget.calls.enable}
-
-          enableUrlPreview={CONFIG.widget.misc.previewUrl}
-
-          config={{
-            chat: { streamManagement: { enable: true } },
-            debug: { mode: 1 },
-          }}
-          showOnlineUsersTab
-          splitView
-          userId={userId}
-          userName={userName}
-          userAvatar={userAvatar}
-          quickActions={{
-            title: "Quick Actions",
-            description:
-              "Select an action from the options below or type a first message to start a conversation.",
-            actions: [
-              "Hello there!",
-              "How are you doing today?",
-              "What features of the ConnectyCube SDK do you find most useful and how have they improved your development process?",
-              "Goodbye and take care!",
-            ],
-          }}
-          translation={"en"}
-          webPushNotifications={CONFIG.widget.notification.webPush.enable}
-          webPushVapidPublicKey={CONFIG.widget.notification.webPush.publicKey}
-          serviceWorkerPath="/connectycube-chat-widget-sw.js"
-          enableOnlineUsersBadge
-          getOnlineUsersInterval={180}
-          limitUrlsPreviews={1}
-          attachmentsAccept="image/*,video/*,.pdf,audio/*"
-          
-          // // uncomment it if you want to place a Chat button bottom Left
-          // buttonStyle={{left: '0.5rem', right: 'auto'}}
-          // portalStyle={{left: '0.5rem', right: 'auto'}}
-
-          onOpenChange={(open: boolean) =>
-            console.log("[@connectycube/chat-widget] open:", open)
-          }
-          onUnreadCountChange={(count: number) =>
-            console.log(
-              "[@connectycube/chat-widget] unread messages count:",
-              count
-            )
-          }
-          onOnlineUsersCountChange={(count: number) => {
-            console.log(
-              "[@connectycube/chat-widget] online users count:",
-              count
-            );
-          }}
-        />
-      )}
-    </>
+      {userId && widget}
+    </div>
   );
 }
 
