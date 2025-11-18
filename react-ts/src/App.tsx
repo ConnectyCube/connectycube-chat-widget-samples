@@ -10,6 +10,10 @@ function App() {
   const [userAvatar, setUserAvatar] = useState<string | undefined>();
 
   useEffect(() => {
+    if (CONFIG.widget.misc.embedView) {
+      return
+    }
+
     const { user } = JSON.parse(localStorage.getItem('@connectycube/chat-widget:session') || '{}');
     const id = localStorage.getItem("userId") || user?.external_id || generateRandomID(10);
     const name =
@@ -27,7 +31,15 @@ function App() {
     queueMicrotask(() => setUserAvatar(avatar));
   }, []);
 
-  const widget = userId && (
+  const userWidgetProps = CONFIG.widget.misc.embedView ? {} : {
+    userId,
+    userName,
+    userAvatar
+  }
+
+  const canRender = CONFIG.widget.misc.embedView ? true : !!userId
+
+  const widget = canRender && (
     <ConnectyCubeChatWidget
       appId={CONFIG.credentials.appId}
       authKey={CONFIG.credentials.authKey}
@@ -53,10 +65,9 @@ function App() {
       }}
       showOnlineUsersTab
       splitView
+      enableUserLogin={CONFIG.widget.misc.embedView}
       embedView={CONFIG.widget.misc.embedView}
-      userId={userId}
-      userName={userName}
-      userAvatar={userAvatar}
+      {...userWidgetProps}
       quickActions={{
         title: "Quick Actions",
         description:
