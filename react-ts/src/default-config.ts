@@ -3,6 +3,12 @@ const CONFIG = {
     appId: "REPLACE_APP_ID",
     authKey: "REPLACE_APP_AUTH_KEY"
   },
+  config: {
+    endpoints: {
+      api: "api.connectycube.com",
+      chat: "chat.connectycube.com",
+    },
+  },
   widget: {
     userPresence: {
       lastSeen: true,
@@ -25,6 +31,7 @@ const CONFIG = {
       enable: true,
     },
     misc: {
+      embedView: false,
       previewUrl: true,
     }
   }
