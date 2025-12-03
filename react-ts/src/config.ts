@@ -3,6 +3,12 @@ const CONFIG = {
     appId: "REPLACE_APP_ID",
     authKey: "REPLACE_APP_AUTH_KEY"
   },
+  config: {
+    endpoints: {
+      api: "REPLACE_APP_API_DOMAIN",
+      chat: "REPLACE_APP_CHAT_DOMAIN",
+    },
+  },
   widget: {
     userPresence: {
       lastSeen: `${REPLACE_ENABLE_USER_LAST_SEEN}` === "true",
@@ -25,6 +31,7 @@ const CONFIG = {
       enable: `${REPLACE_ENABLE_CALLS}` === "true",
     },
     misc: {
+      embedView: `${REPLACE_ENABLE_EMBED_VIEW}` === "true",
       previewUrl: `${REPLACE_ENABLE_URL_PREVIEW}` === "true",
     }
   }
