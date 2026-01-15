@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import ConnectyCubeChatWidget from "@connectycube/chat-widget/react18";
+import React, { useEffect, useState } from "react";
+import ConnectyCubeChatWidget from "@connectycube/chat-widget";
 import CONFIG from "./config";
 import connectycubeLogo from "/logo.png";
 import "./App.css";
@@ -129,7 +129,7 @@ function App() {
           />
         </a>
       </div>
-      <h1>Chat Widget demo (React)</h1>
+      <h1>Chat Widget demo (React version {React.version})</h1>
       <br />
       <p>Click the blue Chat button bottom right to open a chat</p>
       {userId && widget}
