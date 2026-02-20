@@ -151,9 +151,9 @@ export class App {
       getOnlineUsersInterval: 180,
       // url preview
       enableUrlPreview: CONFIG.widget.misc.previewUrl,
-      limitUrlsPreviews: 1,
+      limitUrlsPreviews: 3,
       // attachments settings
-      attachmentsAccept: 'image/*,video/*,.pdf,audio/*',
+      attachmentsAccept: '*/*',
       // chat connection indicator
       showChatStatus: CONFIG.widget.userPresence.chatStatus,
       // user statuses

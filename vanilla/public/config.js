@@ -1,38 +1,38 @@
 const CONFIG = {
   credentials: {
-    appId: "8688",
-    authKey: "36E6E853-89DA-4001-B050-51A582CBD981"
+    appId: "REPLACE_APP_ID",
+    authKey: "REPLACE_APP_AUTH_KEY"
   },
   config: {
     endpoints: {
-      api: "api.connectycube.com",
-      chat: "chat.connectycube.com",
+      api: "REPLACE_APP_API_DOMAIN",
+      chat: "REPLACE_APP_CHAT_DOMAIN",
     },
   },
   widget: {
     userPresence: {
-      lastSeen: true,
-      userStatuses: true,
-      chatStatus: true,
+      lastSeen: `${REPLACE_ENABLE_USER_LAST_SEEN}` === "true",
+      userStatuses: `${REPLACE_ENABLE_USER_STATUSES}` === "true",
+      chatStatus: `${REPLACE_ENABLE_SHOW_CHAT_STATUS}` === "true",
     },
     notification: {
-      show: true,
-      playSound: true,
+      show: `${REPLACE_ENABLE_SHOW_NOTIFICATIONS}` === "true",
+      playSound: `${REPLACE_ENABLE_PLAY_SOUND}` === "true",
       webPush: {
         enable: true,
         publicKey: "BEzSbibTbmBN0wZWd2-ouzv4N-Ljr0idzOndkZ_dB-6HZIUTKewVbfjcRmuOUChK76NhmjICJNWjlBq288yU3IA"
       }
     },
     moderation: {
-      contentReporting: true,
-      blockList: true,
+      contentReporting: `${REPLACE_ENABLE_CONTENT_REPORTING}` === "true",
+      blockList: `${REPLACE_ENABLE_BLOCK_LIST}` === "true",
     },
     calls: {
-      enable: true,
+      enable: `${REPLACE_ENABLE_CALLS}` === "true",
     },
     misc: {
-      embedView: true,
-      previewUrl: true,
+      embedView: `${REPLACE_ENABLE_EMBED_VIEW}` === "true",
+      previewUrl: `${REPLACE_ENABLE_URL_PREVIEW}` === "true",
     }
   }
 };

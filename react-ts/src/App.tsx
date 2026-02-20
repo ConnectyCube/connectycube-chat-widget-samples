@@ -85,8 +85,8 @@ function App() {
       serviceWorkerPath="/connectycube-chat-widget-sw.js"
       enableOnlineUsersBadge
       getOnlineUsersInterval={180}
-      limitUrlsPreviews={1}
-      attachmentsAccept="image/*,video/*,.pdf,audio/*"
+      limitUrlsPreviews={3}
+      attachmentsAccept="*/*"
       
       // // uncomment it if you want to place a Chat button bottom Left
       // buttonStyle={{left: '0.5rem', right: 'auto'}}
