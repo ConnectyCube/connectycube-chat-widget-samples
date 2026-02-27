@@ -172,6 +172,9 @@ export class App {
       onOnlineUsersCountChange: (count: number) => {
         console.log('[@connectycube/chat-widget-angular] online users count:', count);
       },
+      onMessageBeforeDisplay: (message: string) => {
+        return message.replaceAll('fuck', '***');
+      },
     };
   }
 }

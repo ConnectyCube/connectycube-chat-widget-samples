@@ -157,6 +157,9 @@
         onOnlineUsersCountChange: (count) => {
           console.log("[@connectycube/chat-widget] online users count:", count)
         },
+        onMessageBeforeDisplay: (message) => {
+          return message.replaceAll("fuck", "***");
+        },
       };
       chatWidgetContainer.id = 'ConnectyCube_chat-widget';
       document.body.appendChild(chatWidgetContainer);

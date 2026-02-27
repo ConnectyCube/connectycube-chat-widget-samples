@@ -107,6 +107,9 @@ function App() {
           count
         );
       }}
+      onMessageBeforeDisplay={(message: string) => {
+        return message.replace(/fuck/g, '***');
+      }}
     />
   )
 
