@@ -79,7 +79,7 @@ function App() {
           "Goodbye and take care!",
         ],
       }}
-      translation={"en"}
+      translation="en"
       webPushNotifications={CONFIG.widget.notification.webPush.enable}
       webPushVapidPublicKey={CONFIG.widget.notification.webPush.publicKey}
       serviceWorkerPath="/connectycube-chat-widget-sw.js"
