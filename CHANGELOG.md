@@ -1,5 +1,17 @@
 # ConnectyCube Chat Widget changelog
 
+<a name="1.0.0"></a>
+
+## 1.0.0
+
+### Chores
+
+- upgrade dependencies
+- use @connectycube/chat-widget 1.0.0
+- [vanilla] add self-contained browser bundle with react19
+
+<a name="0.35.0"></a>
+
 ## 0.35.0
 
 ### Bug Fixes
@@ -26,6 +38,8 @@
 - AI text summarization in chat
 - new prop `ai` to configure AI options. `ai: { apiKey: string; textSummarization?: boolean; changeMessageTone?: boolean; }`
 - supported new variable `CHAT_WIDGET_CONNECTYCUBE_GOOGLE_GENERATIVE_AI_API_KEY` in `.env` to set `ai.apiKey` for "gemini-2.5-flash" model
+
+<a name="0.33.0"></a>
 
 ## 0.33.0
 
@@ -58,12 +72,16 @@
   - `CHAT_WIDGET_CONNECTYCUBE_WEB_PUSH_VAPID_PUBLIC_KEY` as default for `webPushVapidPublicKey` prop
   - `CHAT_WIDGET_CONNECTYCUBE_WEB_PUSH_SERVICE_WORKER_PATH` as default for `serviceWorkerPath` prop
 
+<a name="0.32.1"></a>
+
 ## 0.32.1
 
 ### Misc
 
 - upgraded `connectycube` to version `4.7.1`
 - upgraded `@connectycube/use-chat` to version `0.26.2`
+
+<a name="0.32.0"></a>
 
 ## 0.32.0
 
@@ -78,6 +96,8 @@
 - removed unnecessary text from `README.md`
 - word "Messed" changed to "Missed" in `en/translation.json` file
 - resets specific store data to prevent displaying the useless toast about a missed call
+
+<a name="0.31.0"></a>
 
 ## 0.31.0
 
@@ -94,17 +114,23 @@
 
 - Playing stop call audio on app start
 
+<a name="0.30.2"></a>
+
 ## 0.30.2
 
 ### Fixed
 
 - Unknown caller name
 
+<a name="0.30.1"></a>
+
 ## 0.30.1
 
 ### Fixed
 
 - Establishes stream-management after reconnecting to the chat
+
+<a name="0.30.0"></a>
 
 ## 0.30.0
 
@@ -116,6 +142,8 @@
 
 - mobile view styles
 - chat & messages styles
+
+<a name="0.29.0"></a>
 
 ## 0.29.0
 
@@ -135,11 +163,15 @@
 
 - Display typing status in chat header
 
+<a name="0.27.0"></a>
+
 ## 0.27.0
 
 ### Misc
 
 - Responsive styles based on a prop `portalStyle: { fontSize: ...px }`
+
+<a name="0.26.1"></a>
 
 ## 0.26.1
 
@@ -153,6 +185,8 @@
 ### Bug fixes
 
 - Now refreshes chat list after reconnecting
+
+<a name="0.26.0"></a>
 
 ## 0.26.0
 
@@ -169,6 +203,8 @@
 - Prevent click-outside and lock-scroll in embedded mode
 - The attachment button "cursor-pointer" style is broken
 - The `window.ConnectyCubeChatWidget.toggle()` function was fixed for UMD build (Vanilla JS)
+
+<a name="0.25.0"></a>
 
 ## 0.25.0
 
@@ -199,11 +235,15 @@
 - Scroll by wheel is broken in modals
 - Message status "read" does not react in real-time
 
+<a name="0.24.0"></a>
+
 ## 0.24.0
 
 ### Bug fixes
 
 - UI fixes for when `enableUrlPreview=false`
+
+<a name="0.23.0"></a>
 
 ## 0.23.0
 
@@ -223,6 +263,8 @@
 - Users tab: remove arrow icon from user cell
 - Removed dependency on the libraries "react-router", "react-router-dom" and "react-scroll"
 
+<a name="0.22.0"></a>
+
 ## 0.22.0
 
 ### Features
@@ -239,6 +281,8 @@
   - new props `onlineBadgeStyle` and `onlineBadgeClassName` to customize the badge
 - User typing feature
 
+<a name="0.21.0"></a>
+
 ## 0.21.0
 
 ### Features
@@ -254,6 +298,8 @@
 
 - Web Push Notifications on mobile bug fixes
 
+<a name="0.20.0"></a>
+
 ## 0.20.0
 
 ### Features
@@ -268,17 +314,23 @@
 - `attachmetsAccept` prop: block sending unsupported attachments when select All Files in file picker
 - Improved block list flow
 
+<a name="0.19.0"></a>
+
 ## 0.19.0
 
 ### Bug fixes
 
 - fix user session restore
 
+<a name="0.18.0"></a>
+
 ## 0.18.0
 
 ### Misc
 
 - update styles for chat item for not to interfere with host site styles
+
+<a name="0.17.0"></a>
 
 ## 0.17.0
 
@@ -290,6 +342,8 @@
 - shows a toast message when a blocked user tries to send a message;
 - added `attachmentsAccept` prop to specify supported attachments types
 - added `defaultChat` prop to force widget open particular chat
+
+<a name="0.16.0"></a>
 
 ## 0.16.0
 
@@ -307,6 +361,8 @@
 ### Misc
 
 - redux store was replaced by [zustand](https://github.com/pmndrs/zustand);
+
+<a name="0.15.0"></a>
 
 ## 0.15.0
 
@@ -331,23 +387,31 @@
 - upgraded tailwindcss to version 4;
 - upgraded ShadCN-UI components to support TailwindCSS version 4;
 
+<a name="0.14.4"></a>
+
 ## 0.14.4
 
 ### Bug fixes
 
 - fix avatar crash when chat name is empty
   
+<a name="0.14.3"></a>
+
 ## 0.14.3
 
 ### Bug fixes
 
 - fix missing typings declaration
 
+<a name="0.14.2"></a>
+
 ## 0.14.2
 
 ### Bug fixes
 
 - fix README
+
+<a name="0.14.0"></a>
 
 ## 0.14.0
 
@@ -357,12 +421,16 @@
 - Hide new chat button via `hideNewChatButton` prop
 - English, Greek, Ukrainian languages supported via `translation` prop
 
+<a name="0.13.0"></a>
+
 ## 0.13.0
 
 ### Features
 
 - user avatar
 - suggested messages
+
+<a name="0.12.0"></a>
 
 ## 0.12.0
 
@@ -374,6 +442,8 @@
 ### Bug fixes
 
 - fix mobile UI styles
+
+<a name="0.11.0"></a>
 
 ## 0.11.0
 
@@ -388,6 +458,8 @@
 - can retrieve messages while the widget is collapsed;
 - incoming notification sound;
 - UI styles;
+
+<a name="0.10.0"></a>
 
 ## 0.10.0
 

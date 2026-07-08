@@ -63,14 +63,11 @@
       localStorage.setItem("userName", userName);
       localStorage.setItem("userAvatar", userAvatar);
     </script>
+
     <!-- @connectycube/chat-widget - start -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/connectycube@6.2.1/dist/connectycube.min.js"></script>
-    <script src="https://unpkg.com/@connectycube/chat-widget@0.46.2/dist/index.umd.js"></script>
+    <script src="https://unpkg.com/@connectycube/chat-widget@1.0.0/dist/index.browser.js"></script>
     <script>
-      const chatWidgetContainer = document.createElement('div');
-      let props = {
+      ConnectyCubeChatWidget.mount({
         // credentials
         appId: CONFIG.credentials.appId,
         authKey: CONFIG.credentials.authKey,
@@ -159,11 +156,7 @@
         onMessageBeforeDisplay: (message) => {
           return message.replaceAll("fuck", "***");
         },
-      };
-      chatWidgetContainer.id = 'ConnectyCube_chat-widget';
-      document.body.appendChild(chatWidgetContainer);
-      const root = ReactDOM.createRoot(chatWidgetContainer);
-      root.render(React.createElement(ConnectyCubeChatWidget, props));
+      });
     </script>
     <!-- @connectycube/chat-widget - end -->
   </body>

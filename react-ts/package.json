@@ -1,7 +1,7 @@
 {
   "name": "chat-widget-sample-react-ts",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,25 +11,24 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@connectycube/chat-widget": "^0.46.2",
-    "@connectycube/react": "^6.2.1",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5"
+    "@connectycube/chat-widget": "^1.0.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
-    "@types/react": "^19.2.14",
+    "@eslint/js": "^10.0.1",
+    "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.1",
-    "eslint": "^9.39.4",
+    "@vitejs/plugin-react": "^6.0.3",
+    "eslint": "^10.6.0",
     "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-react-refresh": "^0.5.2",
-    "globals": "^17.5.0",
-    "typescript": "~5.9.3",
-    "typescript-eslint": "^8.57.2",
-    "vite": "^8.0.10"
+    "eslint-plugin-react-refresh": "^0.5.3",
+    "globals": "^17.7.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.63.0",
+    "vite": "^8.1.3"
   },
   "optionalDependencies": {
-    "@rolldown/binding-linux-x64-gnu": "^1.0.0-rc.9"
+    "@rolldown/binding-linux-x64-gnu": "^1.1.4"
   }
 }
