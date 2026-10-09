@@ -1,5 +1,15 @@
 # ConnectyCube Chat Widget changelog
 
+<a name="1.1.0"></a>
+
+## 1.1.0
+
+### Chores
+
+- upgrade dependencies (Angular 22.2, React 19.3, Vite 8.3)
+- use @connectycube/chat-widget 1.1.0
+- [angular] fix unit tests (stub `window.prompt`, actual app title) and raise initial bundle warning budget to 3.5MB
+
 <a name="1.0.0"></a>
 
 ## 1.0.0

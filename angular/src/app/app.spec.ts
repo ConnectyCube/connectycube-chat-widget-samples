@@ -4,6 +4,9 @@ import { App } from './app';
 
 describe('App', () => {
   beforeEach(async () => {
+    // App asks for a user name via window.prompt on the first run, which blocks a headless browser
+    spyOn(window, 'prompt').and.returnValue('Test User');
+
     await TestBed.configureTestingModule({
       imports: [App],
       providers: [provideZonelessChangeDetection()]
@@ -20,6 +23,6 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Chat Widget demo (Angular)');
   });
 });
